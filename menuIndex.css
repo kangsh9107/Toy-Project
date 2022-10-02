@@ -1,0 +1,46 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Gugi:400');
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon:400');
+@import url('https://fonts.googleapis.com/css?family=Black+And+White+Picture:400');
+
+/* navigation */
+.navbar-nav {
+    font-family: Do Hyeon;
+    font-size: 1.2rem;
+}
+
+.title {
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-family: Gugi;
+    font-size: 2rem;
+}
+
+.menuRecommend {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+/* carousel */
+.pics {
+    width: 600px;
+    position: relative;
+    left: 50%;
+    object-fit: contain;
+}
+
+.carousel-inner {
+    width: auto;
+    height: 500px;
+}
+
+/* card */
+.ranking {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    font-family: Black ANd White Picture;
+}
+
+.container {
+    padding: 30px;
+}
