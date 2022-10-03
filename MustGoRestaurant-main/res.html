@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+          crossorigin="anonymous">
+    <link href="res.css" rel="stylesheet">
+    <!-- JavaScript Bundle with Popper -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"></script>
+    <script defer src="res.js"></script>
+    <title>걸어서 맛집 속으로</title>
+</head>
+<body>
+    <!-- navigation -->
+    <nav class="navbar navbar-expand-lg bg-info bg-opacity-25">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="res.html">
+                <img id="logo" src="back/logo.png">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            메뉴추천
+                        </a>
+                        <ul class="dropdown-menu menuRecommend">
+                            <li><span id="low_price" class="dropdown-item pick_text"
+                                      onclick="low_price_btn()">낮은 가격순</span></li>
+                            <li><span id="high_score" class="dropdown-item pick_text"
+                                      onclick="high_score_btn()">높은 평점순</span></li>
+                            <li><span id="distance" class="dropdown-item pick_text"
+                                      onclick="short_distance_btn()">가까운 거리순</span></li>
+                            <li><span id="korean" class="dropdown-item pick_text"
+                                      onclick="korean_food_btn()">한식</span></li>
+                            <li><span id="rice" class="dropdown-item pick_text"
+                                      onclick="rice_food_btn()">백반</span></li>
+                            <li><span id="western" class="dropdown-item pick_text"
+                                      onclick="western_food_btn()">양식</span></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <span id="recommend" class="nav-link pick_text"
+                                onclick="DB_establisher_btn()">랜덤 럭키세븐</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link"
+                              onclick="javascript:alert('오픈예정. 기대해 주세요!!');">맛집 월드컵</span>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input id="text" class="form-control me-2" type="search"
+                           placeholder="Search" aria-label="Search" autocomplete="off">
+                    <button id="btn" class="btn btn-outline-info" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="4" aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="5" aria-label="Slide 6"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="6" aria-label="Slide 7"></button>
+        </div>
+        <div class="carousel-inner bg-info bg-opacity-25">
+            <div class="carousel-item active">
+                <img src="img/temp/korea.jpg" class="d-block w-100" alt="korea">
+            </div>
+            <div class="carousel-item">
+                <img src="img/temp/japan.jpg" class="d-block w-100" alt="japan">
+            </div>
+            <div class="carousel-item">
+                <img src="img/temp/alcohol.jpg" class="d-block w-100" alt="alcohol">
+            </div>
+            <div class="carousel-item">
+                <img src="img/temp/etc1.jpg" class="d-block w-100" alt="etc1">
+            </div>
+            <div class="carousel-item">
+                <img src="img/temp/etc2.jpg" class="d-block w-100" alt="etc2">
+            </div>
+            <div class="carousel-item">
+                <img src="img/temp/etc3.jpg" class="d-block w-100" alt="etc3">
+            </div>
+            <div class="carousel-item">
+                <img src="img/temp/etc4.jpg" class="d-block w-100" alt="etc4">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button"
+                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button"
+                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- main -->
+    <div id="main"></div>
+    <!-- card -->
+    <!--
+    <div id="card-Container" class="bg-warning bg-opacity-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <img src="img/temp/앤미.jpeg" class="card-img-top img-thumbnail" alt="앤미">
+                        <div class="card-body">
+                            <h5 class="card-title">앤미</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">일식 / 일본가정식 / 10분</li>
+                                <li class="list-group-item">고등어구이 정식 10,000원</li>
+                                <li class="list-group-item">부타가쿠니 정식 12,000원</li>
+                                <li class="list-group-item">가츠나베 정식 11,000원</li>
+                                <li class="list-group-item"></li>
+                            </ul>
+                            <a href="#" class="btn btn-primary">위치보기</a>
+                            <button type="button" class="btn btn-primary position-relative">
+                                👍
+                                <span class="position-absolute top-0 start-100
+                                            translate-middle badge rounded-pill bg-danger">
+                                    99+
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+</body>
+</html>
