@@ -5,8 +5,11 @@ let high_score = document.querySelector("#high_score");
 let DB_establisher = document.querySelector("#recommend");
 let short_distance = document.querySelector("#distance");
 let korean_food = document.querySelector("#korean");
-let rice_food = document.querySelector("#rice");
 let western_food = document.querySelector("#western");
+let japan_food = document.querySelector("#japan");
+let china_food = document.querySelector("#china");
+let rice_food = document.querySelector("#rice");
+let snack_food = document.querySelector("#snack");
 
 function low_price_btn(){
     main.innerHTML = "";
@@ -175,6 +178,111 @@ function korean_food_btn(){
     }
 }
 
+function western_food_btn(){
+    main.innerHTML = "";
+
+    var sortingField = "평점(5점)";
+
+    data.sort(function(a, b) {
+        return b[sortingField] - a[sortingField];        
+    });
+
+    for(let i = 2; i<data.length+2; i++){
+            if(data[i]["분류"] == "양식"){
+            main.innerHTML +=    
+                `
+                    <a class = "card_link" href="${data[i]["링크"]}" target = "_blank">
+                    <div class = "card">
+                        <span class = "res_name">${data[i]["음식점이름"]}</span><br/>
+                        <div class = "container">
+                            <img class = "img" src = "../img/${data[i]["사진"]}"/>
+                            <pre class = "info">
+#${data[i]["분류"]} #${data[i]["세분류"]} 
+대표 가격 : ${data[i][" 대표 가격 "].toLocaleString()}원
+평점 : ${data[i]["평점(5점)"]} / 5.0 
+거리 : ${data[i]["거리(미터)"]}m 걸어서 ${data[i]["시간(분)"]}분
+메뉴1 : ${data[i]["메뉴1"]} 
+메뉴2 : ${data[i]["메뉴2"]} 
+메뉴3 : ${data[i]["메뉴3"]}
+                            </pre>
+                        </div>
+                    </div>
+                </a>
+                `;
+            }
+    }
+}
+
+function japan_food_btn(){
+    main.innerHTML = "";
+
+    var sortingField = "평점(5점)";
+
+    data.sort(function(a, b) {
+        return b[sortingField] - a[sortingField];        
+    });
+
+    for(let i = 2; i<data.length+2; i++){
+            if(data[i]["분류"] == "일식"){
+            main.innerHTML +=    
+                `
+                    <a class = "card_link" href="${data[i]["링크"]}" target = "_blank">
+                    <div class = "card">
+                        <span class = "res_name">${data[i]["음식점이름"]}</span><br/>
+                        <div class = "container">
+                            <img class = "img" src = "../img/${data[i]["사진"]}"/>
+                            <pre class = "info">
+#${data[i]["분류"]} #${data[i]["세분류"]} 
+대표 가격 : ${data[i][" 대표 가격 "].toLocaleString()}원
+평점 : ${data[i]["평점(5점)"]} / 5.0 
+거리 : ${data[i]["거리(미터)"]}m 걸어서 ${data[i]["시간(분)"]}분
+메뉴1 : ${data[i]["메뉴1"]} 
+메뉴2 : ${data[i]["메뉴2"]} 
+메뉴3 : ${data[i]["메뉴3"]}
+                            </pre>
+                        </div>
+                    </div>
+                </a>
+                `;
+            }
+    }
+}
+
+function china_food_btn(){
+    main.innerHTML = "";
+
+    var sortingField = "평점(5점)";
+
+    data.sort(function(a, b) {
+        return b[sortingField] - a[sortingField];        
+    });
+
+    for(let i = 2; i<data.length+2; i++){
+            if(data[i]["분류"] == "중식"){
+            main.innerHTML +=    
+                `
+                    <a class = "card_link" href="${data[i]["링크"]}" target = "_blank">
+                    <div class = "card">
+                        <span class = "res_name">${data[i]["음식점이름"]}</span><br/>
+                        <div class = "container">
+                            <img class = "img" src = "../img/${data[i]["사진"]}"/>
+                            <pre class = "info">
+#${data[i]["분류"]} #${data[i]["세분류"]} 
+대표 가격 : ${data[i][" 대표 가격 "].toLocaleString()}원
+평점 : ${data[i]["평점(5점)"]} / 5.0 
+거리 : ${data[i]["거리(미터)"]}m 걸어서 ${data[i]["시간(분)"]}분
+메뉴1 : ${data[i]["메뉴1"]} 
+메뉴2 : ${data[i]["메뉴2"]} 
+메뉴3 : ${data[i]["메뉴3"]}
+                            </pre>
+                        </div>
+                    </div>
+                </a>
+                `;
+            }
+    }
+}
+
 function rice_food_btn(){
     main.innerHTML = "";
 
@@ -210,7 +318,7 @@ function rice_food_btn(){
     }
 }
 
-function western_food_btn(){
+function snack_food_btn(){
     main.innerHTML = "";
 
     var sortingField = "평점(5점)";
@@ -220,7 +328,7 @@ function western_food_btn(){
     });
 
     for(let i = 2; i<data.length+2; i++){
-            if(data[i]["분류"] == "양식"){
+            if(data[i]["세분류"] == "분식"){
             main.innerHTML +=    
                 `
                     <a class = "card_link" href="${data[i]["링크"]}" target = "_blank">
