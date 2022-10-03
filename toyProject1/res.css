@@ -1,0 +1,148 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Song+Myung&family=Sunflower:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Black Han Sans', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;	
+}
+
+/* navigation */
+.navbar {
+    background-color: rgb(10, 19, 28);
+}
+
+#logo {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid  orange;
+}
+
+.navbar-nav {
+    font-size: 1.2rem;
+}
+
+.navbar-nav:hover {
+    cursor: pointer;
+}
+
+.quickMenu {
+    color: rgb(145, 148, 155);
+    background-color: rgb(10, 19, 28);
+}
+
+.quickMenu:hover {
+    color: white;
+}
+
+.menuRecommend {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.collapsed {
+    margin-right: 15px;
+}
+
+.navToggle {
+    background-color: rgb(255, 186, 71);
+    border: 2px solid orange;
+    border-radius: 5px;
+}
+
+/* carousel */
+.pics {
+    width: 600px;
+    position: relative;
+    left: 50%;
+    object-fit: contain;
+}
+
+.carousel-inner {
+    width: auto;
+    max-height: 500px;
+}
+
+.carousel-inner img {
+    margin-top: -100px;
+}
+
+/* main */
+#main {
+    text-align: center;
+    font-family: Sunflower, Georgia, 'Times New Roman', Times, serif;
+}
+
+.background {
+    background-color: rgb(10, 19, 28);
+}
+
+.card {
+    display: inline-block;
+    width: 350px;
+    margin: 10px;
+    padding: 10px 10px 0 10px;
+    border: 4px solid #222;
+    border-radius: 20px;
+    background-color: rgb(30, 12, 2);
+    color:rgb(247, 201, 251);
+    font-size: 1.5rem;
+    position: relative;
+    overflow: auto;
+}
+
+.img {
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.info {
+    font-family: Sunflower, Georgia, 'Times New Roman', Times, serif;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    text-align: left;
+    border-bottom: 1px solid grey;
+}
+
+.infoSpan1 {
+    display: inline-block;
+    text-align: right;
+    width: 70px;
+}
+
+.infoSpan2 {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.gps {
+    margin-top: 10px;
+    font-size: 1rem;
+    background-color: rgb(3, 19, 156);
+    color: rgb(245, 240, 146);
+}
+
+.like1 {
+    margin-top: 10px;
+    font-size: 1rem;
+    background-color: rgb(3, 19, 156);
+}
+
+.like2 {
+    font-size: 1rem;
+    background-color: rgb(114, 19, 12) !important;
+}
+
+.list-group-item:first-child {
+    border-radius: 20px 20px 0 0;
+    font-weight: bold;
+}
+
+.list-group-item:last-child {
+    border-radius: 0 0 20px 20px;
+}
