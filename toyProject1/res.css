@@ -146,3 +146,28 @@
 .list-group-item:last-child {
     border-radius: 0 0 20px 20px;
 }
+
+/* random main */
+#mmain {
+    background-color: rgb(10, 19, 28);
+    text-align: center;
+    height: 100%;
+}
+
+.btnRandom {
+    display: inline-block;
+    width: 75px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: Gugi;
+    text-shadow: 1.5px 1.5px 0 black;
+    margin-bottom: 5px;
+    background-color: rgb(255, 186, 71);
+    color: rgb(255, 91, 68);
+}
+
+.btnRandom:hover {
+    background-color: rgb(10, 19, 28) !important;
+    color: rgb(255, 91, 68) !important;
+}

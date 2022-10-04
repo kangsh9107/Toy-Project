@@ -15,7 +15,7 @@
             integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
             crossorigin="anonymous"></script>
     <script defer src="res.js"></script>
-    <title>걸어서 맛집 속으로</title>
+    <title>랜덤 뽑기</title>
 </head>
 <body>
     <!-- navigation -->
@@ -80,59 +80,11 @@
             </div>
         </div>
     </nav>
-    <!-- carousel -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide-to="3" aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide-to="4" aria-label="Slide 5"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide-to="5" aria-label="Slide 6"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide-to="6" aria-label="Slide 7"></button>
-        </div>
-        <div class="carousel-inner background">
-            <div class="carousel-item active">
-                <img src="img/temp/korea.jpg" class="d-block w-100" alt="korea">
-            </div>
-            <div class="carousel-item">
-                <img src="img/temp/japan.jpg" class="d-block w-100" alt="japan">
-            </div>
-            <div class="carousel-item">
-                <img src="img/temp/alcohol.jpg" class="d-block w-100" alt="alcohol">
-            </div>
-            <div class="carousel-item">
-                <img src="img/temp/etc1.jpg" class="d-block w-100" alt="etc1">
-            </div>
-            <div class="carousel-item">
-                <img src="img/temp/etc2.jpg" class="d-block w-100" alt="etc2">
-            </div>
-            <div class="carousel-item">
-                <img src="img/temp/etc3.jpg" class="d-block w-100" alt="etc3">
-            </div>
-            <div class="carousel-item">
-                <img src="img/temp/etc4.jpg" class="d-block w-100" alt="etc4">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button"
-                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button"
-                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
     <!-- main -->
-    <div id="main" class="background"></div>
+    <div id="mmain">
+        <button class="btn btn-outline-warning btnRandom" onclick="random_machine()">돌리기</button>
+        <button class="btn btn-outline-warning btnRandom draw">뽑기</button>
+        <div id="main" class="background"></div>
+    </div>
 </body>
 </html>
