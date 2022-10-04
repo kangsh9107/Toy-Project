@@ -152,19 +152,21 @@
     background-color: rgb(10, 19, 28);
     text-align: center;
     height: 100%;
+    padding: 10px;
 }
 
 .btnRandom {
     display: inline-block;
-    width: 75px;
-    height: 40px;
+    width: 100px;
+    height: 50px;
+    border: 2px solid  orange;
     border-radius: 10px;
     font-size: 1rem;
     font-family: Gugi;
     text-shadow: 1.5px 1.5px 0 black;
-    margin-bottom: 5px;
     background-color: rgb(255, 186, 71);
     color: rgb(255, 91, 68);
+    margin-left: 10px;
 }
 
 .btnRandom:hover {

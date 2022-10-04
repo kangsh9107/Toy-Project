@@ -18,72 +18,13 @@
     <title>랜덤 뽑기</title>
 </head>
 <body>
-    <!-- navigation -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img id="logo" src="back/logo2.png">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon navToggle"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown quickMenu">
-                        <a class="nav-link dropdown-toggle quickMenu" href="#"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            메뉴추천
-                        </a>
-                        <ul class="dropdown-menu menuRecommend">
-                            <li><span id="low_price" class="dropdown-item pick_text"
-                                    onclick="low_price_btn()">낮은 가격순</span></li>
-                            <li><span id="high_score" class="dropdown-item pick_text"
-                                    onclick="high_score_btn()">높은 평점순</span></li>
-                            <li><span id="distance" class="dropdown-item pick_text"
-                                    onclick="short_distance_btn()">가까운 거리순</span></li>
-                            <li><span id="time" class="dropdown-item pick_text"
-                                onclick="time_btn()">걸리는 시간순</span></li>
-                            <li><span id="korean" class="dropdown-item pick_text"
-                                    onclick="korean_food_btn()">한식</span></li>
-                            <li><span id="western" class="dropdown-item pick_text"
-                                    onclick="western_food_btn()">양식</span></li>
-                            <li><span id="japan" class="dropdown-item pick_text"
-                                    onclick="japan_food_btn()">일식</span></li>
-                            <li><span id="china" class="dropdown-item pick_text"
-                                    onclick="china_food_btn()">중식</span></li>
-                            <li><span id="rice" class="dropdown-item pick_text"
-                                    onclick="rice_food_btn()">백반</span></li>
-                            <li><span id="snack" class="dropdown-item pick_text"
-                                    onclick="snack_food_btn()">분식</span></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <span id="recommend" class="nav-link pick_text quickMenu"
-                                onclick="DB_establisher_btn()">랜덤 럭키세븐픽</span>
-                    </li>
-                    <li class="nav-item">
-                        <a id="recommend" class="nav-link pick_text quickMenu"
-                           href="random.html">랜덤 뽑기</a>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link quickMenu"
-                            onclick="javascript:alert('오픈예정. 기대해 주세요!!');">맛집 월드컵</span>
-                    </li>
-                </ul>
-                <div class="d-flex" role="search">
-                    <input id="text" class="form-control me-2" type="search"
-                        placeholder="Search" aria-label="Search" autocomplete="off">
-                    <button id="btn" onclick = "search()" class="btn btn-outline-warning" type="submit">Search</button>
-                </div>
-            </div>
-        </div>
-    </nav>
     <!-- main -->
     <div id="mmain">
+        <a class="navbar-brand" href="index.html">
+            <img id="logo" src="back/logo2.png">
+        </a>
         <button class="btn btn-outline-warning btnRandom" onclick="random_machine()">돌리기</button>
-        <button class="btn btn-outline-warning btnRandom draw">뽑기</button>
+        <button id="btnDraw" class="btn btn-outline-warning btnRandom">뽑기</button>
         <div id="main" class="background"></div>
     </div>
 </body>
