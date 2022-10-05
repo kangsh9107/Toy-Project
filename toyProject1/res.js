@@ -204,7 +204,7 @@ function random_machine() {
                             99+
                             <span class="visually-hidden">unread messages</span>
                         </span>
-                    </button>                        
+                    </button>
                 </div>
             </div>
             ` ;
@@ -219,3 +219,29 @@ function random_machine() {
     }
     btnDraw.addEventListener("click", stop);
 }
+
+// 카드 맞추기
+let flipSetting = ((h, v) => {
+    main.innerHTML = "";
+
+    for(let i=0; i<h*v; i++) {
+        let flipObj = document.createElement("div");
+        let flipInner = document.createElement("div");
+        let flipFront = document.createElement("div");
+        let flipBack = document.createElement("div");
+
+        flipObj.classList.add("flipObj");
+        flipInner.classList.add("flipInner");
+        flipFront.classList.add("flipFront");
+        flipBack.classList.add("flipBack");
+
+        main.appendChild(flipObj);
+        flipObj.appendChild(flipInner);
+        flipInner.appendChild(flipFront);
+        flipInner.appendChild(flipBack);
+
+        flipObj.addEventListener("click", () => {
+            flipObj.classList.toggle("flipped");
+        });
+    }
+});

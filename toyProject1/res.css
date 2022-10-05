@@ -173,3 +173,46 @@
     background-color: rgb(10, 19, 28) !important;
     color: rgb(255, 91, 68) !important;
 }
+
+/* flip main */
+.flipObj {
+    display: inline-block;
+    width: 100px;
+    height: 150px;
+    margin: 20px;
+    perspective: 140px;
+}
+
+.flipInner {
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flipObj.flipped .flipInner {
+    transform: rotateY(180deg);
+}
+
+.flipFront, .flipBack {
+    border-radius: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #333;
+    backface-visibility: hidden;
+}
+
+.flipFront {
+    background-image: url(back/flip.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.flipBack {
+    border-radius: 10px;
+    transform: rotateY(180deg);
+}
