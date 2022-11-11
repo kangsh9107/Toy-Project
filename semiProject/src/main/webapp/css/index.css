@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/* Nav */
+#kangNavWrap .kangNavInner {
+	background-color: rgb(145, 122, 90);
+	margin-bottom: 20px;
+}
+
+#kangNavWrap .kangNavInner .navbar-brand {
+	color: white;
+}
+
+#kangNavWrap .kangNavInner .nav-link {
+	color: white;
+}
+
+#kangNavWrap .kangNavInner .kangBtnLogin {
+	color: white;
+}
+
+/* Main */
+#kangMainWrap .kangMain {
+	min-height: 750px;
+}
+
+/* Footer */
+#kangFooterWrap .kangFooter {
+	margin-top: 20px;
+}

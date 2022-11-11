@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#seolQuitDiv{
+	position: absolute;
+	left : 50%;
+	top : 50%;
+	transform: translate(-50%, -50%); 
+	}
+	
+#seolFrm{
+	text-align : center;
+}
+
+#seolQuitLabel{
+	width : 25%;
+	text-align: right;
+	margin-right : 10px;
+	margin-bottom : 10px;
+}
+
+#seolQuitHead{
+	margin-top : 15px;
+}
+
+#seolQuitCheckbox{
+	margin-top : 15px;
+}

@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+body{
+	margin:0;
+	padding: 10px;
+}
+.Hwang_admin_main {
+	border: 3px solid #917a5a;
+	border-radius: 20px;
+	padding:20px;
+	width: 1500px;
+	height: 900px;
+}
+
+.Hwang_admin_main ul{
+	
+	padding: 0px;
+	height: 100%;
+}
+.t_div{
+	list-style: none;
+	text-align: center;
+	height: 50%;
+}
+.t_div table{
+	width: 100%;
+	height: 100%;
+}
+.t_div table .td1{
+	text-align: right;
+	margin-right: 10px;
+	font-size :30px;
+}
+.t_div table .td2{
+	text-align: left;
+	font-size :30px;
+}
+
+/*work view*/
+.b_div{
+	height: 50%;
+}
+
+.b_div div{
+	vertical-align: top;
+	border : 2px solid black;
+	display: inline-block;
+	width:300px;
+	height: 300px;
+	padding :20px;
+	margin : 70px;
+}	
+
+h4{
+	text-align :center;
+}
+
+.t_div input{
+   margin-left:15px;
+   height :35px;
+   font-size : 30px;
+}
+
+.b_div input{
+   margin-left:15px;
+}

@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/*member_list*/
+body{
+	margin:0;
+    padding: 10px;
+}
+#baik_member_view{
+	border: 3px solid #917a5a;
+	border-radius: 20px;
+	padding: 20px;
+	width: 1500px;
+}
+#baik_member_view>h3{
+	text-align: center;
+}
+#baik_member_view>form{
+	text-align: right;
+}
+#baik_member_view>ul{
+	list-style: none;
+	margin-top: 5px;
+	padding:20px;
+}
+#baik_member_view li.title{
+	background-color: #917a5a;
+	border-radius: 10px;
+	color: #fff;
+}
+#baik_member_view li.item{
+	display: inline-block;
+	padding: 3px;
+	position: relative;
+}
+#baik_member_view li.item:hover{
+	background-color: #ccc;
+	border-radius: 10px;
+	cursor: pointer;
+}
+#baik_member_view li>span{
+	display: inline-block;
+}
+#baik_member_view li>span.id{
+	width: 100px;
+	text-align: right;
+	margin-right: 20px;
+}
+#baik_member_view li>span.name{
+	width: 100px;
+}
+#baik_member_view li>span.gender{
+	width: 50px;
+}
+#baik_member_view li>span.age{
+	width: 83px;
+}
+#baik_member_view li>span.postalCode{
+	width: 83px;
+}
+#baik_member_view li>span.address1{
+	width: 200px;
+}
+#baik_member_view li>span.address2{
+	width: 200px;
+}
+#baik_member_view li>span.phone{
+	width: 150px;
+}
+#baik_member_view li>span.email{
+	width: 190px;
+}
+#baik_member_view li>span.point{
+	width: 100px;
+}

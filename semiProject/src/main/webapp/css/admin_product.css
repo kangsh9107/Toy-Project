@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/*member_list*/
+body{
+	margin:0;
+	padding: 10px;
+}
+#baik_product_view{
+	border: 3px solid #917a5a;
+	border-radius: 20px;
+	padding: 20px;
+	width: 1500px;
+}
+#baik_product_view>h3{
+	text-align: center;
+}
+#baik_product_view>form{
+	text-align: right;
+}
+#baik_product_view>ul{
+	list-style: none;
+	margin-top: 5px;
+	padding:20px;
+}
+#baik_product_view li.title{
+	background-color: #917a5a;
+	border-radius: 10px;
+	color: #fff;
+}
+#baik_product_view li.item{
+	display: inline-block;
+	padding: 3px;
+	position: relative;
+}
+#baik_product_view li.item:hover{
+	background-color: #ccc;
+	border-radius: 10px;
+	cursor: pointer;
+}
+#baik_product_view li>span{
+	display: inline-block;
+}
+
+#baik_product_view li>span.serial{
+	width: 100px;
+	text-align: right;
+	margin-right: 20px;
+}
+
+#baik_product_view li>span.category{
+	width: 100px;
+}
+#baik_product_view li>span.productName{
+	width: 200px;
+}
+#baik_product_view li>span.price{
+	width: 100px;
+}
+#baik_product_view li>span.stock{
+	width: 100px;
+}
+
+#baik_product_view li>span.salseRate{
+	width: 150px;
+}
