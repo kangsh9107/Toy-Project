@@ -1,7 +1,7 @@
 /* Footer */
-Footer();
+createFooterLink();
 
-function Footer() {
+function createFooterLink() {
 	const kangLinksWrap = document.querySelector("#kangLinksWrap");
 	
 	for(let i=0; i<4; i++) {

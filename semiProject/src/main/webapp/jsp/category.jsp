@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,9 +22,33 @@
 </head>
 <body>
 
-<!-- nowPage -->
-<form name="kangCategoryFrm">
-	<input type="hidden" name="nowPage" value="${productVo.nowPage }"/>
+<!-- products order by select, findStr, nowPage, category -->
+<form name="kangCategoryFrm" method="post">
+	<nav class="navbar navbar-expand-lg">
+		<div class="container px-4 px-lg-5">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
+				<div class="d-flex">
+					<!-- products order by select -->
+					<select class="form-select" aria-label="Default select example">
+						<option selected>정렬 선택</option>
+						<option value="mostSalesRate">판매량 높은 순</option>
+						<option value="highPrice">높은 가격 순</option>
+						<option value="lowPrice">낮은 가격 순</option>
+					</select>
+					<i class="bi-cart-fill me-2"></i>
+					<!-- findStr -->
+					<input type="search" class="form-control" id="inlineFormInputName" value="${pageVo.findStr }" placeholder="Search"/>
+					<i class="bi-cart-fill me-2"></i>
+					<button type="button" class="btn btn-outline-dark" onclick="productSearch()">Search</button>
+					<!-- nowPage -->
+					<input type="hidden" name="nowPage" value="${pageVo.nowPage }"/>
+					<!-- category -->
+					<input type="hidden" name="category" value="${pageVo.category }"/>
+				</div>
+			</div>
+		</div>
+	</nav>
 </form>
 
 <!-- CategoryProducts -->
@@ -33,20 +58,20 @@
 			<c:forEach var="v" items="${list }" varStatus="status">
 				<div class="col mb-5">
 					<div class="card h-100">
-						<!-- Product image-->
+						<!-- Product image 450x300 -->
 						<img class="card-img-top" src="img/${v.productName }.png" alt="${v.productName }.png"/>
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name -->
 								<h5 class="fw-bolder">${v.productName }</h5>
 								<!-- Product price -->
-								${v.price }
+								₩ <fmt:formatNumber value="${v.price }" pattern="#,###"/>
 							</div>
 						</div>
 						<!-- Buy -->
 						<div class="card-footer p-2 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark" href="#">Buy</a>
+								<a class="btn btn-outline-dark" onclick="Detail()">Buy</a>
 								<a class="btn btn-outline-dark">Add to cart</a>
 							</div>
 						</div>
@@ -57,22 +82,27 @@
 	</div>
 </section>
 
-
 <!-- PageButton -->
 <div class="btn-toolbar" style="justify-content: center;" role="toolbar" aria-label="Toolbar with button groups">
-	<div class="btn-group me-2" role="group" aria-label="First group">
-		<button type="button" class="btn btn-outline-light" style="background-color: rgb(183, 154, 113);">Start</button>
-		<button type="button" class="btn btn-outline-light" style="background-color: rgb(183, 154, 113);"><</button>
-	</div>
+	<c:if test="${pageVo.startPage > 1 }">
+		<div class="btn-group me-2" role="group" aria-label="First group">
+			<button type="button" class="btn btn-outline-light" style="background-color: rgb(183, 154, 113);" onclick="movePage(1)">Start</button>
+			<button type="button" class="btn btn-outline-light" style="background-color: rgb(183, 154, 113);" onclick="movePage(${pageVo.startPage - 1 })"><</button>
+		</div>
+	</c:if>
+	
 	<div class="btn-group me-2" role="group" aria-label="Second group">
-		<c:forEach var="i" begin="1" end="5" step="1">
-			<button type="button" class="btn btn-outline-light" style="background-color: rgb(183, 154, 113);">${i }</button>
+		<c:forEach var="i" begin="${pageVo.startPage }" end="${pageVo.endPage }" step="1">
+			<button type="button" class="btn btn-outline-light" style="background-color: rgb(183, 154, 113);" onclick="movePage(${i })">${i }</button>
 		</c:forEach>
 	</div>
-	<div class="btn-group" role="group" aria-label="Third group">
-		<button type="button" class="btn btn-outline-light" style="background-color: rgb(183, 154, 113);">></button>
-		<button type="button" class="btn btn-outline-light" style="background-color: rgb(183, 154, 113);">End</button>
-	</div>
+	
+	<c:if test="${pageVo.endPage lt pageVo.totPage }">
+		<div class="btn-group" role="group" aria-label="Third group">
+			<button type="button" class="btn btn-outline-light" style="background-color: rgb(183, 154, 113);" onclick="movePage(${pageVo.endPage + 1 })">></button>
+			<button type="button" class="btn btn-outline-light" style="background-color: rgb(183, 154, 113);" onclick="movePage(${pageVo.totPage })">End</button>
+		</div>
+	</c:if>
 </div>
 
 </body>

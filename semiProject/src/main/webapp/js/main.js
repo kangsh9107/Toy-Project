@@ -1,7 +1,7 @@
 /* Carousel */
-Carousel();
+createCarousel();
 
-function Carousel() {
+function createCarousel() {
 	const carousel = document.querySelector("#carouselExampleFade");
 	const carouselInner = document.querySelector(".carousel-inner");
 	
@@ -34,9 +34,9 @@ function Carousel() {
 }
 
 /* Best8 */
-Best();
+showBest();
 
-function Best() {
+function showBest() {
 	const kangBestWrap = document.querySelector("#kangBestWrap");
 	
 	for(let i=0; i<8; i++) {

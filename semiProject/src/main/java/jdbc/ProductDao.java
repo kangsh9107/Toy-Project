@@ -1,10 +1,14 @@
 package jdbc;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
 
 public class ProductDao {
 	Connection      conn = null;
@@ -34,30 +38,24 @@ public class ProductDao {
 		}
 	}
 	
-	public List<ProductVo> select(ProductPage pageVo) {
+	public List<ProductVo> select(ProductPage pageVo, HttpServletRequest req) throws ServletException, IOException {
 		if(conn == null) conn = new DBConn().getConn();
 		
 		List<ProductVo> list = new ArrayList<>();
 		
 		try {
+			if(req.getParameter("job").equals("search"))
 			sql = "select count(serial) totSize from products "
-				+ "where category = ? "
-				+ "or    serial = ? "
-				+ "or    productName = ?";
+				+ "where category = ?";
+			
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, pageVo.getCategory());
-			
 			rs = ps.executeQuery();
 			rs.next();
 			int totSize = rs.getInt("totSize");
 			pageVo.setTotSize(totSize);
 			pageVo.compute();
 			
-			sql = "select * from products where category = ?";
-			ps = conn.prepareStatement(sql);
-			ps.setString(1, pageVo.category);
-			
-			rs = ps.executeQuery();
 			while(rs.next()) {
 				ProductVo productVo = new ProductVo();
 				productVo.setCategory(rs.getString("category"));
@@ -74,6 +72,7 @@ public class ProductDao {
 			ex.printStackTrace();
 		}
 		
+		close();
 		return list;
 	}
 

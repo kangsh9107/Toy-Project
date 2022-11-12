@@ -4,8 +4,8 @@ public class ProductPage {
 	String findStr   = ""; // 검색어
 	int    nowPage   = 1;  // 현재 페이지
 	int    totSize;        // 검색된 데이터 건수
-	int    listSize  = 10; // 한 페이지에 노출될 데이터 건수
-	int    blockSize = 5;  // 한 페이지에 노출시킬 페이지 버튼 건수
+	int    listSize  = 8; // 한 페이지에 노출될 데이터 건수
+	int    blockSize = 3;  // 한 페이지에 노출시킬 페이지 버튼 건수
 	int    totPage;        // 전체 페이지 건수
 	int    startPage;      // 표시된 페이지 버튼 중 처음 페이지 버튼
 	int    endPage;        // 표시된 페이지 버튼 중 마지막 페이지 버튼

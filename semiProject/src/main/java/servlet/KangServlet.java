@@ -18,6 +18,7 @@ public class KangServlet extends HttpServlet {
 	String path = "index.jsp?inc=jsp/";
 	String url  = "";
 	String job  = "";
+	String category = "";
 	ProductDao       dao = null;
 	RequestDispatcher rd = null;
 	
@@ -29,23 +30,51 @@ public class KangServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		if(dao == null) dao = new ProductDao();
 		
-		job = req.getParameter("job");
+		category = req.getParameter("category");
 		ProductPage pageVo = new ProductPage();
-		pageVo.setCategory(job);
+		pageVo.setCategory(category);
 		
 		select(pageVo, req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		if(dao == null) dao = new ProductDao();
+		
+		category = req.getParameter("category");
+		job = req.getParameter("job");
+		ProductPage pageVo = new ProductPage();
+		pageVo.setFindStr(req.getParameter("findStr"));
+		pageVo.setNowPage(Integer.parseInt(req.getParameter("nowPage")));
+		pageVo.setCategory(req.getParameter("category"));
+		req.setAttribute("pageVo", pageVo);
+		
+		switch(job) {
+		case "select":
+			select(pageVo, req, resp);
+			break;
+		case "search":
+			search(pageVo, req, resp);
+			break;
+		}
 	}
 	
 	public void select(ProductPage pageVo, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		if(dao == null) dao = new ProductDao();
 
-		List<ProductVo> list = dao.select(pageVo);
+		List<ProductVo> list = dao.select(pageVo, req);
+		url = path + "category.jsp";
+		rd = req.getRequestDispatcher(url);
+		req.setAttribute("list", list);
+		req.setAttribute("pageVo", pageVo);
+		
+		rd.forward(req, resp);
+	}
+	
+	public void search(ProductPage pageVo, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		if(dao == null) dao = new ProductDao();
+
+		List<ProductVo> list = dao.select(pageVo, req);
 		url = path + "category.jsp";
 		rd = req.getRequestDispatcher(url);
 		req.setAttribute("list", list);

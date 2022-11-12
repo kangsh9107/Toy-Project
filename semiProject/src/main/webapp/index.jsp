@@ -23,8 +23,8 @@
 <%
 String inc1 = "jsp/main.jsp";
 
-if(request.getParameter("inc1") != null) {
-	inc1 = request.getParameter("inc1");
+if(request.getParameter("inc") != null) {
+	inc1 = request.getParameter("inc");
 }
 %>
 
@@ -33,7 +33,7 @@ if(request.getParameter("inc1") != null) {
 	<div class="kangNavInner">
 		<nav class="navbar navbar-expand-lg">
 			<div class="container px-4 px-lg-5">
-				<a class="navbar-brand">인재몰</a>
+				<a class="navbar-brand" href="index.jsp">인재몰</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 						data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 						aria-expanded="false" aria-label="Toggle navigation">
@@ -42,11 +42,11 @@ if(request.getParameter("inc1") != null) {
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
 						<li class="nav-item"><a class="nav-link active" aria-current="page" href="index.jsp">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="action.kang?job=outer">Outer</a></li>
-						<li class="nav-item"><a class="nav-link" href="action.kang?job=top">Top</a></li>
-						<li class="nav-item"><a class="nav-link" href="action.kang?job=bottom">Bottom</a></li>
-						<li class="nav-item"><a class="nav-link" href="action.kang?job=shoes">Shoes</a></li>
-						<li class="nav-item"><a class="nav-link" href="action.kang?job=acc">Acc</a></li>
+						<li class="nav-item"><a class="nav-link" href="action.kang?category=outer">Outer</a></li>
+						<li class="nav-item"><a class="nav-link" href="action.kang?category=top">Top</a></li>
+						<li class="nav-item"><a class="nav-link" href="action.kang?category=bottom">Bottom</a></li>
+						<li class="nav-item"><a class="nav-link" href="action.kang?category=shoes">Shoes</a></li>
+						<li class="nav-item"><a class="nav-link" href="action.kang?category=acc">Acc</a></li>
 					</ul>
 					<form class="d-flex">
 						<c:choose>
@@ -56,14 +56,14 @@ if(request.getParameter("inc1") != null) {
 								</button>
 							</c:when>
 							<c:when test="${sessionScope.sessionId != null }">
-								<button class="btn btn-outline-dark kangBtnMyPage" type="button">
+								<a class="btn btn-outline-dark kangBtnMyPage" type="button">
 									MyPage
-								</button>
+								</a>
 							</c:when>
 							<c:when test="${sessionScope.sessionId eq 'admin' }">
-								<button class="btn btn-outline-dark kangBtnAdminPage" type="button">
+								<a class="btn btn-outline-dark kangBtnAdminPage" type="button">
 									AdminPage
-								</button>
+								</a>
 							</c:when>
 						</c:choose>
 						
