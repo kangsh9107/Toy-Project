@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>jsp/admin_modify.jsp</title>
-<link rel='stylesheet' href='css/member_modify.css'>
+<link rel='stylesheet' href='../css/admin_modify.css'>
 <script src='//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'></script>
-<script defer src="js/admin_modify.js"></script>
+<script defer src="../js/admin_modify.js"></script>
 </head>
 <body>
 
@@ -47,12 +47,12 @@
       	<input name="age" type="text" class="age"  placeholder="age" value='${vo.age }'/>
       </div>
       <div class="textForm">
-        <input name="zipcode" type="text" size='35' value='${vo.zipcode }'/>
-        <input type="button" value="우편번호" name="btnFindZip"/>
-      </div>
-      <div class="textForm">
       	<label>주소</label>
         <input name="address" type="text" class="address" placeholder="adr" value='${vo.address }'>
+      </div>
+      <div class="textForm">
+        <input name="zipcode" type="text" size='35' value='${vo.zipcode }'/>
+        <input type="button" value="우편번호" name="btnFindZip"/>
       </div>
         <div class="textForm">
         <label>상세주소</label>
@@ -60,7 +60,7 @@
       </div>
       <div class="textForm">
         <label>전화번호</label>
-        <input name="cellphoneNo" type="text" class="cellphoneNo"  placeholder="phone" value='${vo.phone}'>
+        <input name="cellphoneNo" type="text" class="cellphoneNo"  placeholder="phone" value='${vo.phone}' }>
       </div>
       <div class="textForm">
       	<label>이메일</label>
@@ -77,9 +77,7 @@
         <input type='button' value='회원 삭제' id='btnDelete' />
         <input type='button' value='목록' id='btnSelect' />
       </div>
-      
     </form>
-  
 	<script>
 	let frm = document.frm_input; // 이거 찾아야댐.. 2022-11-11일
 	

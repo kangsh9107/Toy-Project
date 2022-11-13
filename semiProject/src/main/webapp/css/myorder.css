@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+#seolMyOrder{
+	border: 1px solid #000000;
+	margin: 30px;
+	padding: 10px;
+	width:1000px;
+}
+
+#seolMyorderLi{
+	border: 1px solid #aaa;
+	margin-right : 20px;
+	display:grid;
+	grid-template-columns: 60px 120px 180px 120px 180px 120px 60px;
+	font-weight: bold;
+	background-color: rgb(183,154,113);
+	color: #fff;
+	
+}
+
+#seolMyorderLi .l1{ 
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	margin-left: 1em;
+	padding: 0px 0px 0px 5px;
+}
+#seolMyorderLi .l2{ 
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	padding: 0px 0px 0px 5px;
+}
+#seolMyorderLi .l3{ 
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	padding: 0px 0px 0px 5px;
+}
+#seolMyorderLi .l4{ 
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	padding: 0px 0px 0px 5px;
+}
+#seolMyorderLi .l5{ 
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	padding: 0px 0px 0px 5px;
+}
+#seolMyorderLi .l6{ 
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	padding: 0px 0px 0px 5px;
+}
+
+#seolMyorderLi .l7{ 
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	margin-right: 1em;
+	padding: 0px 0px 0px 5px;
+}
+#seolMyorderDetail{
+	display:grid;
+	grid-template-columns: 60px 120px 180px 120px 180px 120px 60px;
+	border: 1px solid #aaa;
+	margin-right : 20px;
+}
+
+#seolMyorderDetail .no{
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	margin-left: 1em;
+	padding: 0px 0px 0px 5px;
+}
+#seolMyorderDetail .category{
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	padding: 0px 0px 0px 5px;
+}
+#seolMyorderDetail .serial{
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	padding: 0px 0px 0px 5px;
+}
+#seolMyorderDetail .price{
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	padding: 0px 0px 0px 5px;
+}
+#seolMyorderDetail .orderDate{
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	padding: 0px 0px 0px 5px;
+	
+}
+#seolMyorderDetail .status{
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	padding: 0px 0px 0px 5px;
+}
+
+#seolMyorderDetail .refund{
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+	border-color: #aaa;
+	margin-right: 1em;
+	padding: auto;
+}
+
+#seolMyorderDetail [type='button']{
+	width: 80px;
+	box-sizing: border-box;
+	margin-left: 32px;
+	background-color: rgb(183,154,113);
+	color: #fff;
+	border: #fff;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	
+}

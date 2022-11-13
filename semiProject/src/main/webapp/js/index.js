@@ -18,3 +18,8 @@ function createFooterLink() {
 		`;
 	}
 }
+
+/* logout */
+function checkLogout() {
+	
+}

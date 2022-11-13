@@ -8,8 +8,8 @@ body{
 	border: 3px solid #917a5a;
 	border-radius: 20px;
 	padding:20px;
-	width: 1500px;
-	height: 900px;
+	width: 1200px;
+	height: 100%;
 }
 
 .Hwang_admin_main ul{
@@ -20,7 +20,7 @@ body{
 .t_div{
 	list-style: none;
 	text-align: center;
-	height: 50%;
+	height: 30%;
 }
 .t_div table{
 	width: 100%;
@@ -38,17 +38,17 @@ body{
 
 /*work view*/
 .b_div{
-	height: 50%;
+	height: 70%;
+	padding : 30px;
 }
 
 .b_div div{
 	vertical-align: top;
 	border : 2px solid black;
 	display: inline-block;
-	width:300px;
+	width: 300px;
 	height: 300px;
-	padding :20px;
-	margin : 70px;
+	margin-left : 60px;
 }	
 
 h4{
@@ -57,10 +57,15 @@ h4{
 
 .t_div input{
    margin-left:15px;
-   height :35px;
-   font-size : 30px;
+   width: 300px;
+
 }
 
 .b_div input{
    margin-left:15px;
+    width : 200px;
+}
+
+.b_div ul{
+	list-style : none;
 }

@@ -2,26 +2,36 @@
 
 #seolQuitDiv{
 	position: absolute;
-	left : 50%;
-	top : 50%;
-	transform: translate(-50%, -50%); 
+	width : 1050px;
+	height : 500px;
+	top : 0px;
 	}
-	
-#seolFrm{
-	text-align : center;
-}
-
-#seolQuitLabel{
-	width : 25%;
-	text-align: right;
-	margin-right : 10px;
-	margin-bottom : 10px;
-}
-
 #seolQuitHead{
-	margin-top : 15px;
+	margin-top : 50px;
+	
+}
+	
+#seolQuitCheckbox{
+	margin-top : 20px;
+	
 }
 
-#seolQuitCheckbox{
-	margin-top : 15px;
+
+#seolCheck_id_pwd{
+	width: 320px;
+	height : 200px;
+	margin-top: 20px;
+	
 }
+#seolQuitLabel_id{
+	width:100px;
+	height:30px;
+	margin-right: 20px;
+}
+#seolQuitLabel_pwd{
+	width:100px;
+	height:30px;
+	margin-right: 20px;
+}
+
+

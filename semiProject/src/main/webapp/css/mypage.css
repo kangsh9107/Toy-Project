@@ -1,0 +1,59 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon:400');
+
+#mypage_chowrap {
+        margin:5px;
+        float : left;
+        clear : both;
+        
+}
+#mypage_chonavi {
+        width: 220px;
+        text-indent: 20px;		/*들여쓰기*/
+        line-height:50px;		/*텍스트 세로정렬 위해 50px로 라인하이트 설정*/
+        margin:0;
+        padding:0;
+}
+
+
+#mypage_chotitle {
+        height: 60px;
+        line-height: 55px;		
+        background:#917a5a;
+        font-family: 'Do Hyeon';
+		font-size : 30px;
+       
+}
+.mypage_chosub{
+        margin-bottom: 2px;
+        height:50px;
+        line-height:50px;		/*텍스트 세로정렬 위해 50px로 라인하이트 설정*/
+        background:#f4f4f4;
+        cursor:pointer;
+        font-family: 'Do Hyeon';
+		font-size : 25px;
+		vertical-align : center;
+}
+.mypage_chosub a {
+        display: block;	/*앵커태그 확장해서 클릭될수 있도록  크기조절위해 블락으로설정*/
+        width: 100%;
+        height:100%;
+        text-decoration:none;
+        color:#000;
+}
+.mypage_chosub:hover {
+        background:#9135a5;
+}
+
+#mypage_content {
+		width : 1200px;
+		height : 600px;
+		display : inline-block;
+		margin-top : 5px;
+		margin-left : 10px;
+		position : absolute;
+		top:76px;
+			
+}
+
+/* @media !important; 뷰포트를 강제할수있도록 몇width에서 찾아서 콘텐트 inc출력되는부분의 너비가 고정되도록 움직이지않게 앱솔루트*/

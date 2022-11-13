@@ -50,25 +50,27 @@ if(request.getParameter("inc") != null) {
 					</ul>
 					<form class="d-flex">
 						<c:choose>
-							<c:when test="${sessionScope.sessionId == null }">
-								<button class="btn btn-outline-dark kangBtnLogin" type="button">
+							<c:when test="${sessionId eq null }">
+								<a class="btn btn-outline-dark kangBtnLogin" href="action.kang?inc=login.jsp&category=temp">
 									Login
-								</button>
+								</a>
 							</c:when>
-							<c:when test="${sessionScope.sessionId != null }">
+							<c:when test="${sessionId ne null && sessionId ne 'admin' }">
+								<i class="bi-cart-fill me-2"></i>
 								<a class="btn btn-outline-dark kangBtnMyPage" type="button">
 									MyPage
 								</a>
 							</c:when>
-							<c:when test="${sessionScope.sessionId eq 'admin' }">
+							<c:when test="${sessionId eq 'admin' }">
+								<i class="bi-cart-fill me-2"></i>
 								<a class="btn btn-outline-dark kangBtnAdminPage" type="button">
 									AdminPage
 								</a>
 							</c:when>
 						</c:choose>
-						
-						<c:if test="${sessionScope.sessionId != null }">
-							<button class="btn btn-outline-dark kangBtnLogout" type="button">
+						<c:if test="${sessionId ne null }">
+							<i class="bi-cart-fill me-2"></i>
+							<button class="btn btn-outline-dark kangBtnLogout" type="button" onclick="checkLogout()">
 								Logout
 							</button>
 						</c:if>

@@ -1,0 +1,170 @@
+@charset "UTF-8";
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  font-family:sans-serif;
+
+}
+
+body {
+  background-image:#34495e;
+}
+
+#csc{
+	color:#c08050;
+	font-size:30pt;
+	border-top:2px solid #9a7338;
+	border-bottom:2px solid #9a7338;
+	margin-top: 15px;	
+}
+.joinForm {
+  position:absolute;
+  width:400px;
+  height:400px;
+  padding: 30px, 20px;
+  background-color:#FFFFFF;
+  text-align:center;
+  top:30%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 15px;
+}
+
+.joinForm h1 span{
+	font-size: 11pt;
+	color : black;
+}
+
+.joinForm h2 {
+  text-align: center;
+  margin: 30px;
+}
+
+.textForm {
+  border-bottom: 2px solid #adadad;
+  margin: 10px;
+  padding: 10px 10px;
+}
+
+
+.id {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.pw {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.name {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+#gender {
+  width:100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:18px;
+  height:15px;
+  background: none;
+  margin: 10px;
+  /* letter-spacing:5px; */
+  display: inline-block;
+}
+#gender .choiGender {
+	width: 117px;
+	text-align: left;
+	color: #636e72;
+  	font-size:16px;
+  	display: inline-block;
+}
+#gender .choiGenderRight {
+	display: inline-block;
+	width: 260px;
+	text-align: left;
+}
+.choiHr {
+	width: 96%;
+    margin-bottom: -10px;
+}
+.age{
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+.address {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+.btnFindZip {
+  background-color: blue;
+}
+
+.email {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.cellphoneNo {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.choiBtnJoin {
+  position:relative;
+  left:40%;
+  transform: translateX(-50%);
+  margin-bottom: 40px;
+  width:80%;
+  height:40px;
+  background: linear-gradient(125deg,#8D6E63,#FFCC80,#814E342E);
+  background-position: left;
+  background-size: 200%;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  transition: 0.4s;
+  display:inline;
+}
+
+.choiBtnJoin:hover {
+  background-position: right;
+}

@@ -1,6 +1,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,44 +37,45 @@
 		    <span class='point'>마일리지</span>
 		</li>
 		
-		<!--<c:forEach var='v' items="${list }" varStatus='status'>-->
+		<c:forEach var='v' items="${list }" varStatus='status'>
 		<li class='item' onclick="memberView('${v.id}')">
-				<span class='id'>1</span>
-				<span class='name'>2</span>
-				<span class='gender'>3</span>
-				<span class='age'>4</span>
-				<span class='postalCode'>5</span>
-				<span class='address1'>6</span>
-				<span class='address2'>7</span>
-				<span class='phone'>8</span>
-				<span class='email'>9</span>
-				<span class='point'>10</span>
+				<span class='id'>${v.id }</span>
+				<span class='name'>${v.name }</span>
+				<span class='gender'>${v.gender }</span>
+				<span class='age'>${v.age }</span>
+				<span class='postalCode'>${v.postalCode }</span>
+				<span class='address1'>${v.address1 }</span>
+				<span class='address2'>${v.address2 }</span>
+				<span class='phone'>${v.phone }</span>
+				<span class='email'>${v.email }</span>
+				<span class='point'>${v.point }</span>
 		</li>
+		</c:forEach>
 	  </ul>
 		<!-- PageButton -->
 		<div class="btn-toolbar" style="justify-content: center;" role="toolbar" aria-label="Toolbar with button groups">
-		<!-- <c:if test="${pageVo.startPage > 1 }"> -->
+		<c:if test="${pageVo.startPage > 1 }"> 
 		   <div class="btn-group me-2" role="group" aria-label="First group">
 		      <button type="button" class="btn btn-outline-light" onclick='movePage(1)'  
 		              style="background-color: rgb(183, 154, 113);">Start</button>
 		      <button type="button" class="btn btn-outline-light" onclick= 'movePage(${pageVo.startPage - 1})' 
-		              style="background-color: rgb(183, 154, 113);"><</button>
+		              style="background-color: rgb(183, 154, 113);"></button>
 		   </div>
-		<!--</c:if>-->   
-		   <!--<c:forEach var='i' begin='${pageVo.startPage }' end='${pageVo.endPage }'>-->
+	    </c:if>   
+		   <c:forEach var='i' begin='${pageVo.startPage }' end='${pageVo.endPage }'>
 		   <div class="btn-group me-2" role="group" aria-label="Second group">
 		      <button type="button" class="btn btn-outline-light" onclick='movePage(${i })'
 		              style="background-color: rgb(183, 154, 113);">${i }</button>
 		   </div>
-		   <!--</c:forEach>-->
-		   <!--<c:if test="${pageVo.endPage lt pageVo.totPage }">-->
+		   </c:forEach>
+		   <c:if test="${pageVo.endPage lt pageVo.totPage }">
 		   <div class="btn-group" role="group" aria-label="Third group">
 		      <button type="button" class="btn btn-outline-light" onclick='movePage(${pageVo.endPage + 1})'
 		              style="background-color: rgb(183, 154, 113);">></button>
 		      <button type="button" class="btn btn-outline-light" onclick='movePage(${pageVo.totPage })'
 		              style="background-color: rgb(183, 154, 113);">End</button>
 		   </div>
-		   <!-- </c:if> -->
+		   </c:if>
 		</div>
 	
 </div>

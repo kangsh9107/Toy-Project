@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jdbc.MemberDao;
 
-@WebServlet(urlPatterns = "/action.do")
+//@WebServlet(urlPatterns = "/action.do")
 public class SemiServlet extends HttpServlet {
 	String path = "index.jsp?inc=jsp/";
 	String url  = "";

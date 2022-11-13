@@ -1,0 +1,57 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon:400');
+
+
+
+#mymain_chowrap{
+	display:inline-block;
+	width : 1100px;
+}
+
+
+.mymain_name2, .mymain_point2, .mymain_totalprice2, .mymain_odercount2{
+	text-indent: 20px;
+	font-family: 'Do Hyeon';
+	font-size : 30px;
+	display : block;
+	line-height:55px;
+}
+
+/* #mymain_name의 컬러는 해당 등급의 동그라미사진의 컬러와 같은 컬러로 변경 */
+#mymain_name{
+	background-color : #D8B250;
+	width : 185px;
+	height : 110px;
+	text-align : left;
+	float: left;
+	 
+	
+}
+
+#mymain_point{
+	background-color : #EEEEEE;
+	width : 185px;
+	height : 110px;
+	text-align : left;
+	float: left;
+	 
+}
+
+#mymain_totalprice{
+	background-color : #EEEEEE;
+	width : 185px;
+	height : 110px;
+	text-align : left;
+	float: left;
+	 
+}
+
+#mymain_odercount{
+	background-color : #EEEEEE;
+	width : 185px;
+	height : 110px;
+	text-align : left;
+	float: left;
+	
+}
+
