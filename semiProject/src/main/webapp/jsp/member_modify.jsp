@@ -8,17 +8,15 @@
 <title>jsp/admin_modify.jsp</title>
 <link rel='stylesheet' href='css/member_modify.css'>
 <script src='//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'></script>
-<script defer src="js/admin_modify.js"></script>
+<script defer src="js/member_modify.js"></script>
 </head>
 <body>
 
 <div id='admin_input' class='admin_input'>
 <form name="frm_user" action="doJoin" method="POST" class="joinForm">
-      <h1 id='csc'>인재몰</h1>                                                                 
-      <h2>회원정보 수정</h2>
-      
+      <h1 id='csc'>회원정보 수정</h1>                                                                 
       <div class="textForm">
-      <label>아이디</label>
+      <label>아이디 </label>
         <input name="loginId" type="text" class="id" placeholder="id" value='${vo.id }'/>
       </div>
       <div class="textForm">
@@ -33,30 +31,30 @@
        	<label>이름</label>
         <input name="name" type="text" class="name" placeholder="name"value='${vo.name }'/>
 	  </div>
-      <div class="gender">
+      <div class="textForm">
       	<label>성별</label>
       	남성<input name="gender" type="radio" value='m'
       	${ (vo.gender eq 'm')? 'checked':'' }/>
       	
       	여성<input name="gender" type="radio" value='f'
       	${ (vo.gender eq 'f')? 'checked':'' }/>
-      	<hr/>
       </div>
       <div class='textForm'>
      	<label>나이</label>
       	<input name="age" type="text" class="age"  placeholder="age" value='${vo.age }'/>
       </div>
       <div class="textForm">
-        <input name="zipcode" type="text" size='35' value='${vo.zipcode }'/>
-        <input type="button" value="우편번호" name="btnFindZip"/>
+      	<label>주소</label>
+        <input name="address" type="text" class="address" placeholder="adr" value='${vo.address1 }'>
       </div>
       <div class="textForm">
-      	<label>주소</label>
-        <input name="address" type="text" class="address" placeholder="adr" value='${vo.address }'>
+        <label>우편번호</label>
+        <input name="postalCode" type="text" size='20' value='${vo.postalCode}'/>
+        <input type="button" value="우편번호 찾기" name="btnFindZip"/>
       </div>
         <div class="textForm">
         <label>상세주소</label>
-        <input name="address2" type="text" class="address" placeholder="상세주소"  value='${vo.address2 }'>
+        <input name="address2" type="text" class="address2" placeholder="상세주소"  value='${vo.address2 }'>
       </div>
       <div class="textForm">
         <label>전화번호</label>
@@ -77,9 +75,7 @@
         <input type='button' value='회원 삭제' id='btnDelete' />
         <input type='button' value='목록' id='btnSelect' />
       </div>
-      
     </form>
-  
 	<script>
 	let frm = document.frm_input; // 이거 찾아야댐.. 2022-11-11일
 	

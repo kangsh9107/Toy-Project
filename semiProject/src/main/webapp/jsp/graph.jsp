@@ -13,6 +13,12 @@
 <body>
 <div id="baik_graph">
 	<h3>전체 회원 분포도</h3>
+<div id="baik_graphSearch">
+  <form name="frm_graph" method="post">
+     <input type='search' name='findStr' value="${pageVo.findStr }"/>
+     <input type='button' value='조회' name='btnSelect'/>
+  </form>
+</div>
 	<div id="piechart"></div>
 	<div id="chart_div"></div>
 </div>

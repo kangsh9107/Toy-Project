@@ -12,7 +12,6 @@
 	  rel="stylesheet"
 	  integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	  crossorigin="anonymous">
-<link href="css/category.css" rel="stylesheet">
 <!-- JavaScript -->
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
@@ -37,14 +36,12 @@
 						<option value="lowPrice">낮은 가격 순</option>
 					</select>
 					<i class="bi-cart-fill me-2"></i>
-					<!-- findStr -->
-					<input type="search" class="form-control" id="inlineFormInputName" value="${pageVo.findStr }" placeholder="Search"/>
+					<input type="search" name="findStr" class="form-control" id="inlineFormInputName" value="${pageVo.findStr }" placeholder="Search"/>
 					<i class="bi-cart-fill me-2"></i>
 					<button type="button" class="btn btn-outline-dark" onclick="productSearch()">Search</button>
-					<!-- nowPage -->
 					<input type="hidden" name="nowPage" value="${pageVo.nowPage }"/>
-					<!-- category -->
 					<input type="hidden" name="category" value="${pageVo.category }"/>
+					<input type="hidden" name="serial" value=""/>
 				</div>
 			</div>
 		</div>
@@ -68,11 +65,10 @@
 								₩ <fmt:formatNumber value="${v.price }" pattern="#,###"/>
 							</div>
 						</div>
-						<!-- Buy -->
+						<!-- View -->
 						<div class="card-footer p-2 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark" onclick="Detail()">Buy</a>
-								<a class="btn btn-outline-dark">Add to cart</a>
+								<button class="btn btn-outline-dark" onclick="showCategoryDetail(${pageVo.nowPage }, ${v.serial }, '${pageVo.category }')">View</button>
 							</div>
 						</div>
 					</div>

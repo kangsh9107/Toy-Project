@@ -12,39 +12,35 @@ body {
 }
 
 #csc{
-	color:#c08050;
-	font-size:30pt;
-	border-top:2px solid #9a7338;
-	border-bottom:2px solid #9a7338;	
+  color:#c08050;
+  font-size:30pt;
+  border-top:2px solid #9a7338;
+  border-bottom:2px solid #9a7338;
+  margin-top: 15px;	
+  text-align: center;
 }
 .joinForm {
-  position:absolute;
-  width:400px;
+  margin-left: 100px;
+  width:500px;
   height:400px;
-  padding: 30px, 20px;
   background-color:#FFFFFF;
-  text-align:center;
   top:30%;
   left:50%;
-  transform: translate(-50%,-50%);
   border-radius: 15px;
-}
-
-.joinForm h2 {
-  text-align: center;
-  margin: 30px;
 }
 
 .textForm {
   border-bottom: 2px solid #adadad;
-  margin: 30px;
-  padding: 10px 10px;
-  text-align : left;
+  margin: 8px;
+  padding: 9px 10px;
 }
 
+.textForm label{
+  width: 110px;
+}
 
 .id {
-  width: 100%;
+  width: 200px;
   border:none;
   outline:none;
   color: #636e72;
@@ -53,8 +49,8 @@ body {
   background: none;
 }
 
-.category {
-  width: 100%;
+#category {
+  width: 200px;
   border:none;
   outline:none;
   color: #636e72;
@@ -63,8 +59,8 @@ body {
   background: none;
 }
 
-.serial {
-  width: 100%;
+.SERIAL {
+  width: 200px;
   border:none;
   outline:none;
   color: #636e72;
@@ -73,7 +69,7 @@ body {
   background: none;
 }
 .price {
-  width: 100%;
+  width: 200px;
   border:none;
   outline:none;
   color: #636e72;
@@ -83,7 +79,7 @@ body {
 }
 
 .orderNumber {
-  width: 100%;
+  width: 200px;
   border:none;
   outline:none;
   color: #636e72;
@@ -92,7 +88,7 @@ body {
   background: none;
 }
 .orderDate {
-  width: 100%;
+  width: 200px;
   border:none;
   outline:none;
   color: #636e72;
@@ -102,7 +98,7 @@ body {
 }
 
 .status {
-  width: 100%;
+  width: 200px;
   border:none;
   outline:none;
   color: #636e72;
@@ -111,18 +107,51 @@ body {
   background: none;
 }
 
+.btnZone{
+  text-align: center;
+}
+
 #btnModify{
-    width: 20%;
-    height: 40px;
+  margin: 10px;
+  color: white;
+  position: relative;
+  width: 25%;
+  height: 40px;
+  background: linear-gradient(125deg,#8D6E63,#FFCC80,#814E342E);
+  background-position: left;
+  background-size: 200%;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s;
 }
 
 #btnDelete{
-	width:20%;
-	height: 40px;
-
+  margin: 10px;
+  color: white;
+  position: relative;
+  width: 25%;
+  height: 40px;
+  background: linear-gradient(125deg,#8D6E63,#FFCC80,#814E342E);
+  background-position: left;
+  background-size: 200%;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s;
 }
 
 #btnSelect{
-	width:20%;
-	height: 40px;
+  margin: 10px;
+  color: white;
+  position: relative;
+  width: 25%;
+  height: 40px;
+  background: linear-gradient(125deg,#8D6E63,#FFCC80,#814E342E);
+  background-position: left;
+  background-size: 200%;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s;
 }

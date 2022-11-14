@@ -1,13 +1,13 @@
-/* login.jsp --> signup.jsp */
+/* Login */
 const ChoiLoginFrm = document.ChoiLoginFrm;
 
-function moveSignup() {
-	ChoiLoginFrm.action = "action.kang?inc=signup.jsp&job=temp&findStr=temp&nowPage=1&category=temp";
+function checkLogin() {
+	ChoiLoginFrm.action = "action.kang?job=checkLogin";
 	ChoiLoginFrm.submit();
 }
 
-/* 로그인 */
-function checkLogin() {
-	ChoiLoginFrm.action = "action.kang?inc=main.jsp&job=temp&findStr=temp&nowPage=1&category=temp";
+/* login.jsp --> signup.jsp */
+function moveSignup() {
+	ChoiLoginFrm.action = "action.kang?job=moveSignup";
 	ChoiLoginFrm.submit();
 }

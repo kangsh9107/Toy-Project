@@ -42,7 +42,6 @@ public class MyPageOrderDao {
 		
 		String sql ="";
 		try {
-			OrderVo orderVo = new OrderVo();
 			sql =  " select * from orders "
 					+ " where id = ?";
 			ps = conn.prepareStatement(sql);
@@ -50,11 +49,13 @@ public class MyPageOrderDao {
 			
 			rs = ps.executeQuery();
 			while(rs.next()) {
+				OrderVo orderVo = new OrderVo();
 				orderVo.setCategory(rs.getString("category"));
 				orderVo.setSERIAL(rs.getInt("SERIAL"));
 				orderVo.setPrice(rs.getInt("price"));
 				orderVo.setOrderDate(rs.getString("orderDate"));
 				orderVo.setStatus(rs.getInt("status"));
+				orderVo.setOrderNumber(rs.getInt("orderNumber"));
 				
 				list.add(orderVo);
 			}
@@ -64,5 +65,19 @@ public class MyPageOrderDao {
 		close();
 		return list;
 	}
+		
+	public void myrefund(int orderNumber) {
+	      if(conn == null) conn = new DBConn().getConn();
+	      String sql = " update orders set status=4 where orderNumber=? ";
+	      try {
+	         ps=conn.prepareStatement(sql);
+	         ps.setInt(1, orderNumber);   
+	         rs=ps.executeQuery();
+	         rs.next();
+	      }catch(Exception ex) {
+	         ex.printStackTrace();
+	      }
+	      
+	   }
 
 }

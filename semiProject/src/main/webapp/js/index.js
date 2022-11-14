@@ -2,10 +2,10 @@
 createFooterLink();
 
 function createFooterLink() {
-	const kangLinksWrap = document.querySelector("#kangLinksWrap");
+	const kangFooterLinksWrap = document.querySelector("#kangFooterLinksWrap");
 	
 	for(let i=0; i<4; i++) {
-		kangLinksWrap.innerHTML += `
+		kangFooterLinksWrap.innerHTML += `
 			<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 				<h5 class="text-uppercase">Links</h5>
 				<ul class="list-unstyled mb-0">
@@ -17,9 +17,4 @@ function createFooterLink() {
 			</div>
 		`;
 	}
-}
-
-/* logout */
-function checkLogout() {
-	
 }

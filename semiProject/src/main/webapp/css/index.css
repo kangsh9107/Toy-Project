@@ -18,6 +18,21 @@
 	color: white;
 }
 
+#kangNavWrap .kangNavInner .kangBtnLogin:hover {
+	color: black;
+}
+
+/* Logo */
+#choiLogoWrap {
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	object-fit: fill;
+	height: 40px;
+	margin-top: -15px;
+	margin-left: -15px;
+}
+
 /* Main */
 #kangMainWrap .kangMain {
 	min-height: 750px;

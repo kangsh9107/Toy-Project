@@ -3,6 +3,8 @@ package jdbc;
 public class Mypage_orderVo {
 	String id, category, orderDate, productName;
 	int SERIAL, price, orderNumber, status;
+	
+	
 	public String getId() {return id;}
 	public void setId(String id) {this.id = id;}
 	public String getCategory() {return category;}

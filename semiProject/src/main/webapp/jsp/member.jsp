@@ -20,9 +20,12 @@
 <div id='baik_member_view'>
 	<h3>회원정보 조회</h3>
 	<form name='frm_member_search' id='search' method='post'>
-		<input type='search' name='findStr' value="${pageVo.findStr }"/>
-		<input type='button' value='입력' name='btnMemberSearch'/>
-	</form>
+	    <input type='search' name='findStr' value="${pageVo.findStr }"/>
+	    <input type='hidden' name='nowPage' value="${pageVo.nowPage }"/>
+		<input type='button' value='조회' name='btnSelect'/>
+		<!-- Page 빈이 잘 작동하는지 테스트. 나중에 hidden 처리. -->
+    </form>
+
 	<ul>
 		<li class='title'> <!-- 타이틀 -->
 			<span class='id'>아이디</span>
@@ -59,7 +62,7 @@
 		      <button type="button" class="btn btn-outline-light" onclick='movePage(1)'  
 		              style="background-color: rgb(183, 154, 113);">Start</button>
 		      <button type="button" class="btn btn-outline-light" onclick= 'movePage(${pageVo.startPage - 1})' 
-		              style="background-color: rgb(183, 154, 113);"></button>
+		              style="background-color: rgb(183, 154, 113);"><</button>
 		   </div>
 	    </c:if>   
 		   <c:forEach var='i' begin='${pageVo.startPage }' end='${pageVo.endPage }'>

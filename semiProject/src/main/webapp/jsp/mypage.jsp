@@ -20,12 +20,12 @@ if(request.getParameter("incMY") != null){
 <div id="mypage_chowrap">
     <ul id="mypage_chonavi">
 		<li id="mypage_chotitle">MY</li>
-	    <li class="mypage_chosub"><a href='myPage?id=f0083&myJob=myPage'>회원정보</a></li>
-	    <li class="mypage_chosub"><a href="myPage?id=f0083&myJob=showOrder">주문정보확인</a></li>
-	    <li class="mypage_chosub"><a href='myPage?id=f0083&myJob=quit'>회원탈퇴</a></li>
+	    <li class="mypage_chosub"><a href='myPage?id=<%=sessionId%>&myJob=myPage'>회원정보</a></li>
+	    <li class="mypage_chosub"><a href="myPage?id=<%=sessionId%>&myJob=showOrder">주문정보확인</a></li>
+	    <li class="mypage_chosub"><a href='myPage?id=<%=sessionId%>&myJob=quit'>회원탈퇴</a></li>
     </ul>
 
-</div>    
+</div>
 
 <div id='mypage_content'>
 		<jsp:include page="<%=incMY %>"/>	<!-- content 부분에 inc를 불러줌 inc에는 여러 페이지들이 매개변수로 담겨져서 해당 매개변수로 담겨진 페이지들이 창에 띄워지게 된다. -->

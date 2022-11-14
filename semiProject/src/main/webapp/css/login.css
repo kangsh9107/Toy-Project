@@ -7,9 +7,17 @@ body {
 	margin: 0;
 	color: #666;
 }
+@font-face {
+    font-family: 'GothicA1-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/GothicA1-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
 h1#title {
 	border:4px solid #665851;
+	border-radius:10px;
 	background-color: #665851;
+	font-family: 'GothicA1-Light';
 	font-size:30pt;
 	color: white;
 	text-shadow: 0 0 10px rgba(0,0,0,0.8);

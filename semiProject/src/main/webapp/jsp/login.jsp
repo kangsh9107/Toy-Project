@@ -5,11 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>login</title>
+<title>jsp/login.jsp</title>
 <link rel="stylesheet" href="css/login.css">
 <script defer src="js/login.js"></script>
 </head>
 <body>
+
+<%
+if(request.getParameter("alert") != null) {
+	out.print("<script>");
+	out.print("    alert('아이디와 비밀번호를 확인해주세요.')");
+	out.print("</script>");
+}
+%>
+
 <form name="ChoiLoginFrm" method="post">
 	<div class="container">
 		<div class="top">
@@ -34,5 +43,6 @@
 		</div>
 	</div>
 </form>
+
 </body>
 </html>

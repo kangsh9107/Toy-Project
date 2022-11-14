@@ -11,6 +11,7 @@
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <link href="css/myorder.css" rel="stylesheet">
+<script defer src='js/mypage_order.js'></script>
 
 <title>jsp/myorder.jsp</title>
 </head>
@@ -32,16 +33,27 @@
 				</li>
 	
 				<c:forEach var='v' items="${list}" varStatus='status'>
-				<li class='item' id='seolMyorderDetail' onclick="view('${v.id}')">
-					<span class=no>${status.count }</span>
-					<span class=category>${v.category }</span>
-					<span class=serial>${v.SERIAL }</span>
-					<span class=price>${v.price}</span>
-					<span class=orderDate>${v.orderDate }</span>
-					<span class=status>${v.status }</span>
-					<span class=refund><input type='button' value='환불요청'/></span>
-				</li>
-				</c:forEach>
+              	 <form name='frm_myorderlist' method='post'>
+             	  <li class='item' id='seolMyorderDetail'>
+	                  <span class=no>${status.count }</span>
+	                  <span class=category>${v.category }</span>
+	                  <span class=serial>${v.SERIAL }</span>
+	                  <span class=price>${v.price}</span>
+	                  <span class=orderDate>${v.orderDate }</span>
+	                  <span class=status>
+	                 	 <c:choose>
+					 	   <c:when test="${v.status eq '1'}">입금완료</c:when>
+					 	   <c:when test="${v.status eq '2'}">배송 중</c:when>
+					 	   <c:when test="${v.status eq '3'}">배송완료</c:when>
+					 	   <c:when test="${v.status eq '4'}">환불대기</c:when>
+						</c:choose>
+	                  </span>
+	                  <span class=refund><input type='button' value='환불요청' id='btnRefund'>
+	                  <input type='text' id='orderNumber' name='orderNumber' value='${v.orderNumber}' style='display:none'/>
+	                  </span>
+             	  </li>
+             	  </form>
+            	</c:forEach>
 			</ul>
 		</div>
 		<div class="btn-toolbar" style="justify-content:center;" role="toolbar" aria-label="Toolbar with button groups">

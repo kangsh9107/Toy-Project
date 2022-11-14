@@ -4,19 +4,15 @@
 let frmProductSearch = document.frm_product_search;
 
 if(frmProductSearch != null) {
-	frmProductSearch.btnMemberSearch.addEventListener('click', function() {
-		frmProductSearch.action = 'action.do?job=productSearch';
+	frmProductSearch.btnSelect.addEventListener('click', function() {
+		frmProductSearch.action = 'action.admin?job=productSearch';
+		frmProductSearch.nowPage.value = 1;
 		frmProductSearch.submit();	
 	});
 }
-
-function productView(serial) {
-	frmProductSearch.action = 'acton.do?job=productView&serial=' + serial;
-	frmProductSearch.submit();
-}
-
 function movePage(nowPage) {
-	frmProductSearch.action = 'action.do?job=select';
+	frmProductSearch.action = 'action.admin?job=productSearch';
 	frmProductSearch.nowPage.value = nowPage;
 	frmProductSearch.submit();
 }
+

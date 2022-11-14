@@ -3,6 +3,7 @@ package jdbc;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,11 @@ public class MypageDao {
 			ex.printStackTrace();
 		}
 	}
+	//List<Mypage_mymainvo> list = new ArrayList<Mypage_mymainvo>();
+	
+	
+	
+
 	public List<Mypage_orderVo> select(String id){
 		if(conn == null) conn = new DBConn().getConn();
 		

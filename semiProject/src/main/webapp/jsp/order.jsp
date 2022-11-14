@@ -1,6 +1,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,8 @@
 	<h3>주문정보 조회</h3>
 	<form name='frm_order_search' id='search' method='post'>
 		<input type='search' name='findStr' value="${pageVo.findStr }"/>
-		<input type='button' value='입력' name='btnMemberSearch'/>
+	    <input type='hidden' name='nowPage' value="${pageVo.nowPage }"/>
+		<input type='button' value='조회' name='btnSelect'/>
 	</form>
 	<ul>
 		<li class='title'> <!-- 타이틀 -->
@@ -31,41 +33,42 @@
 			<span class='status'>주문상태</span>
 		</li>
 		
-		<!--<c:forEach var='v' items="${list }" varStatus='status'>-->
+		<c:forEach var='v' items="${list }" varStatus='status'>
 		<li class='item' onclick="orderView('${v.id}')">
-				<span class='id'>1</span>
-				<span class='category'>2</span>
-				<span class='SERIAL'>3</span>
-				<span class='price'>4</span>
-				<span class='orderNumber'>5</span>
-				<span class='orderDate'>6</span>
-				<span class='status'>7</span>
+				<span class='id'>${v.id }</span>
+				<span class='category'>${v.category }</span>
+				<span class='SERIAL'>${v.SERIAL }</span>
+				<span class='price'>${v.price }</span>
+				<span class='orderNumber'>${v.orderNumber }</span>
+				<span class='orderDate'>${v.orderDate }</span>
+				<span class='status'>${v.status }</span>
 		</li>
+		</c:forEach>
    	</ul>
 		<!-- PageButton -->
 		<div class="btn-toolbar" style="justify-content: center;" role="toolbar" aria-label="Toolbar with button groups">
-		<!-- <c:if test="${pageVo.startPage > 1 }"> -->
+		<c:if test="${pageVo.startPage > 1 }">
 		   <div class="btn-group me-2" role="group" aria-label="First group">
 		      <button type="button" class="btn btn-outline-light" onclick='movePage(1)'  
 		              style="background-color: rgb(183, 154, 113);">Start</button>
 		      <button type="button" class="btn btn-outline-light" onclick= 'movePage(${pageVo.startPage - 1})' 
 		              style="background-color: rgb(183, 154, 113);"><</button>
 		   </div>
-		<!--</c:if>-->   
-		   <!--<c:forEach var='i' begin='${pageVo.startPage }' end='${pageVo.endPage }'>-->
+		</c:if>
+		<c:forEach var='i' begin='${pageVo.startPage }' end='${pageVo.endPage }'>
 		   <div class="btn-group me-2" role="group" aria-label="Second group">
 		      <button type="button" class="btn btn-outline-light" onclick='movePage(${i })'
 		              style="background-color: rgb(183, 154, 113);">${i }</button>
 		   </div>
-		   <!--</c:forEach>-->
-		   <!--<c:if test="${pageVo.endPage lt pageVo.totPage }">-->
+		 </c:forEach>
+		 <c:if test="${pageVo.endPage lt pageVo.totPage }">
 		   <div class="btn-group" role="group" aria-label="Third group">
 		      <button type="button" class="btn btn-outline-light" onclick='movePage(${pageVo.endPage + 1})'
 		              style="background-color: rgb(183, 154, 113);">></button>
 		      <button type="button" class="btn btn-outline-light" onclick='movePage(${pageVo.totPage })'
 		              style="background-color: rgb(183, 154, 113);">End</button>
 		   </div>
-		   <!-- </c:if> -->
+		  </c:if>
 		</div>
 </div>
 

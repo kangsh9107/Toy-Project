@@ -4,10 +4,16 @@
 let frmMemberSearch = document.frm_member_search;
 
 if(frmMemberSearch != null) {
-	frmMemberSearch.btnMemberSearch.addEventListener('click', function() {
+	frmMemberSearch.btnSelect.addEventListener('click', function() {
 		frmMemberSearch.action = 'action.admin?job=memberSearch';
-		frmMemberSearch.submit();	
+		frmMemberSearch.nowPage.value = 1; // 어떤 페이지에서 조회를 누르던 1페이지부터 보여주기 위해서.
+		frmMemberSearch.submit();
 	});
+}
+function movePage(nowPage) {
+	frmMemberSearch.action = 'action.admin?job=memberSearch';
+	frmMemberSearch.nowPage.value = nowPage;
+	frmMemberSearch.submit();
 }
 
 function memberView(id) {
@@ -15,9 +21,4 @@ function memberView(id) {
 	frmMemberSearch.submit();
 }
 
-function movePage(nowPage) {
-	frmMemberSearch.action = 'action.admin?job=select';
-	frmMemberSearch.nowPage.value = nowPage;
-	frmMemberSearch.submit();
-}
 

@@ -12,7 +12,6 @@ public class ProductPage {
 	int    startNo;        // 한 페이지에 노출될 데이터의 시작 데이터
 	int    endNo;          // 한 페이지에 노출될 데이터의 마지막 데이터
 	String category  = ""; // 노출 시킬 카테고리 종류
-	String job       = "";
 
 	public void setPage(int nowPage, int totSize) {
 		this.nowPage = nowPage;
@@ -43,7 +42,6 @@ public class ProductPage {
 	public int getStartNo() { return startNo; }
 	public int getEndNo() { return endNo; }
 	public String getCategory() { return category; }
-	public String getJob() { return job; }
 
 	public void setFindStr(String findStr) { this.findStr = findStr; }
 	public void setNowPage(int nowPage) { this.nowPage = nowPage; }
@@ -56,5 +54,4 @@ public class ProductPage {
 	public void setStartNo(int startNo) { this.startNo = startNo; }
 	public void setEndNo(int endNo) { this.endNo = endNo; }
 	public void setCategory(String category) { this.category = category; }
-	public void setJob(String job) { this.job = job; }
 }

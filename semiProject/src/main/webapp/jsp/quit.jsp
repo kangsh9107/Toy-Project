@@ -9,6 +9,7 @@
 <link href="css/quit.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <title>jsp/quit.jsp</title>
+<script defer src='js/quit.js'></script>
 </head>
 <body>
 	<div id='seolQuitDiv' name='seolQuitDiv' >
@@ -31,15 +32,16 @@
 			- 회사가 INJAEMALL 내에 존재하는 경우, 회사에 귀속된 데이터에 대해서는 보관 됩니다.<br/>
 		</span>
 		
-		<input type="checkbox" id="seolQuitCheckbox" name="seolQuitCheckbox" value="해당 내용을 모두 확인했으며, 회원탈퇴에 동의합니다">
+		 <label for="seolQuitCheckbox" style="cursor:pointer"><input type="checkbox" id="seolQuitCheckbox" name="seolQuitCheckbox">
 		해당 내용을 모두 확인했으며, 회원탈퇴에 동의합니다
+		</label>
 		
 		<c:set var='v' value='${id}' scope='request'/>
 		<div id = 'seolCheck_id_pwd'>
 			<form name='seolFrm' id='seolFrm' method='post'>
-				<label id='seolQuitLabel_id'>ID</label><input type='text' name='seolId' id='seolId' value='${v }'/><br/>
-				<label id='seolQuitLabel_pwd'>PASSWORD</label><input type='text' name='seolPwd' id='seolPwd'/><br/>
-				<input type='submit' class='btn btn-secondary' value = '회원탈퇴' />
+				<label id='seolQuitLabel_id'>ID</label><input type='text' name='seolId' id='seolId' value='${v }' readonly/><br/>
+				<label id='seolQuitLabel_pwd'>PASSWORD</label><input type='password' name='seolPwd' id='seolPwd'/><br/>
+				<input type='button' id = 'quitButton' class='btn btn-secondary' value = '회원탈퇴' />
 			</form>
 		</div>
 	</div>
