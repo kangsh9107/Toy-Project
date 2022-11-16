@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +39,10 @@
 		    <span class='serial'>${v.serial }</span>
 			<span class='category'>${v.category }</span>
 			<span class='productName'>${v.productName }</span>
-			<span class='price'>${v.price }</span>
+			<span class='price'>
+			   <fmt:formatNumber value='${v.price }' pattern='#,###'>
+			   </fmt:formatNumber>
+			</span>
 			<span class='stock'>${v.stock }</span>
 			<span class='salesRate'>${v.salesRate }</span>
 		</li>

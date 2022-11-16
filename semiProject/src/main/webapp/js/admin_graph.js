@@ -1,6 +1,24 @@
 /**
  * 
  */
+let frmGraph = document.frm_graph;
+let mSize = document.querySelector("#mSize");
+let fSize = document.querySelector("#fSize");
+let tenSize = document.querySelector("#tenSize");
+let twentySize = document.querySelector("#twentySize");
+let thirtySize = document.querySelector("#thirtySize");
+let fourtySize = document.querySelector("#fourtySize");
+let fiftySize = document.querySelector("#fiftySize");
+
+
+if(frmGraph != null){
+	frmGraph.btnSelect.addEventListener('click',function() {
+		frmGraph.action = 'action.admin?job=graphSearch';
+		frmGraph.SERIAL.value = frmGraph.findStr.value;
+		frmGraph.nowPage.value=1;
+		frmGraph.submit();
+	})
+}
 /* 원그래프 */
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -9,12 +27,12 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Men',     11],
-          ['Women',      13]
+          ['남성', Number(mSize.value)],
+          ['여성', Number(fSize.value)]
         ]);
 
         var options = {
-          title: '성별 분포도'
+          title: '성별별 통계'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -29,16 +47,16 @@ google.charts.setOnLoadCallback(drawBasic);
 function drawBasic() {
 
       var data = google.visualization.arrayToDataTable([
-        ['Age', '회원수',],
-        ['10대', 27000],
-        ['20대', 60000],
-        ['30대', 35000],
-        ['40대', 19000],
-        ['50대 이상', 9000]
+        ['Age', '회원수',{role:'style'}],
+        ['10대', Number(tenSize.value), '#f02fa2'],
+        ['20대', Number(twentySize.value),'#a0cfa6'],
+        ['30대', Number(thirtySize.value),'#ba3f52'],
+        ['40대', Number(fourtySize.value),'#126ab1'],
+        ['50대 이상', Number(fiftySize.value),'#f22c32']
       ]);
 
       var options = {
-        title: '연령별 분포도',
+        title: '연령별 통계',
      
         hAxis: {
         

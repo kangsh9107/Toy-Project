@@ -25,16 +25,19 @@ body{
 	background-color: #917a5a;
 	border-radius: 10px;
 	color: #fff;
+	width: 1250px;
 }
 #baik_member_view li.item{
 	display: inline-block;
 	padding: 3px;
 	position: relative;
+	width: 1250px;
 }
 #baik_member_view li.item:hover{
 	background-color: #ccc;
 	border-radius: 10px;
 	cursor: pointer;
+	width: 1250px;
 }
 #baik_member_view li>span{
 	display: inline-block;
@@ -58,9 +61,15 @@ body{
 }
 #baik_member_view li>span.address1{
 	width: 150px;
+	overflow:hidden;
+	text-overflow:ellipsis; 
+	white-space:nowrap;
 }
 #baik_member_view li>span.address2{
 	width: 150px;
+	overflow:hidden;
+	text-overflow:ellipsis; 
+	white-space:nowrap;
 }
 #baik_member_view li>span.phone{
 	width: 150px;

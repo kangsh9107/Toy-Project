@@ -36,9 +36,9 @@
 						<option value="lowPrice">낮은 가격 순</option>
 					</select>
 					<i class="bi-cart-fill me-2"></i>
-					<input type="search" name="findStr" class="form-control" id="inlineFormInputName" value="${pageVo.findStr }" placeholder="Search"/>
+					<input type="search" name="findStr" class="form-control" id="inlineFormInputName" value="${pageVo.findStr }" placeholder="ProductName"/>
 					<i class="bi-cart-fill me-2"></i>
-					<button type="button" class="btn btn-outline-dark" onclick="productSearch()">Search</button>
+					<button type="button" class="btn btn-outline-dark" onclick="searchProduct()">Search</button>
 					<input type="hidden" name="nowPage" value="${pageVo.nowPage }"/>
 					<input type="hidden" name="category" value="${pageVo.category }"/>
 					<input type="hidden" name="serial" value=""/>

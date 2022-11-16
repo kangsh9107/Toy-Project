@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>jsp/order_modify.jsp</title>
+<title>jsp/orderDetail.jsp</title>
 <link rel='stylesheet' href='css/order_modify.css'>
 <script defer src="js/order_modify.js"></script>
 </head>
@@ -14,7 +13,7 @@
 
 <div id='admin_input' class='admin_input'>
 <form name="frm_order_modify" action="doJoin" method="POST" class="joinForm">
-      <h1 id='csc'>주문정보 수정</h1>                                                                 
+      <h1 id='csc'>주문정보</h1>                                                                 
       
       <div class="textForm">
       <label>아이디</label>
@@ -31,10 +30,7 @@
       </div>
         <div class="textForm">
         <label>가   격</label>
-        <span class="price">
-         <fmt:formatNumber value='${vo.price }' pattern='#,###'>
-	     </fmt:formatNumber>
-	     </span>
+        <input name="price" type="text" class="price" value='${vo.price }' readonly>
       </div>
       <div class="textForm">
         <label>주문번호</label>
@@ -44,24 +40,32 @@
       	<label>주문날짜</label>
         <input name="orderDate" type="text" class="orderDate" value='${vo.orderDate }' readonly>
       </div>
-      <div class="textForm">
+      <c:choose>
+		<c:when test='${vo.status eq 1}'>
+		<div class="textForm">
       	<label>주문상태</label>
-		<span id='status' class='status'>  
-		<c:choose>
-			<c:when test="${vo.status eq '1'}">입금완료</c:when>
-			<c:when test="${vo.status eq '2'}">배송 중</c:when>
-			<c:when test="${vo.status eq '3'}">배송완료</c:when>
-			<c:when test="${vo.status eq '4'}">환불대기</c:when>
-		 </c:choose>
-		 </span>
-      </div>
-      
-      <div class='btnZone'>
-      	<span></span>
-        <input type='button' value='환불 승인' id='btn_order_Delete' />
-        <input type='button' value='취소' id='btn_order_Select' />
-      </div>
-      
+		<input name="status" type="text" class="status" value='입금완료' readonly>     
+        </div>
+        </c:when>
+		<c:when test='${vo.status eq 2}'>
+		<div class="textForm">
+      	<label>주문상태</label>
+		<input name="status" type="text" class="status" value='배송 중' readonly>     
+        </div>
+        </c:when>
+        <c:when test='${vo.status eq 3}'>
+		<div class="textForm">
+      	<label>주문상태</label>
+		<input name="status" type="text" class="status" value='배송완료' readonly>     
+        </div>
+        </c:when>
+        <c:when test='${vo.status eq 4}'>
+		<div class="textForm">
+      	<label>주문상태</label>
+		<input name="status" type="text" class="status" value='환불신청' readonly>     
+        </div>
+        </c:when>
+	  </c:choose>
       <input type="hidden" name="findStr" value=""/>
       <input type="hidden" name="nowPage" value="1"/>
     </form>

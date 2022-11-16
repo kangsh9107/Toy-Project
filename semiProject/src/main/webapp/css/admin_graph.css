@@ -9,13 +9,13 @@ body{
 	padding:20px;
 }
 #piechart{
-	display:inline-block;
+	float:left;
 	width:700px;
-	height:700px;
+	height:640px;
 }
 
 #chart_div{
-	display:inline-block;
+	float:left;
 	width:700px;
-	height:700px;
+	height:640px;
 }

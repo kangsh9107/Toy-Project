@@ -17,6 +17,12 @@ if(request.getParameter("alert") != null) {
 	out.print("    alert('아이디와 비밀번호를 확인해주세요.')");
 	out.print("</script>");
 }
+
+if(request.getParameter("signup") != null) {
+	out.print("<script>");
+	out.print("alert('회원가입 완료!')");
+	out.print("</script>");
+}
 %>
 
 <form name="ChoiLoginFrm" method="post">
@@ -36,12 +42,17 @@ if(request.getParameter("alert") != null) {
 			<br/>
 			<input type="password" name="pwd" id="password" autocomplete="off">
 			<br/>
-			<button type="button" onclick="checkLogin()">로그인</button>
+			<button type="button" onclick="login()">로그인</button>
 			<button type="button" onclick="moveSignup()">회원가입</button>
 			<br/>
 			<a href="#"><p class="small">비밀번호를 잊어버리셨습니까?</p></a>
 		</div>
 	</div>
+	
+	<!-- Temp -->
+	<input type="hidden" name="findStr" value=""/>
+	<input type="hidden" name="nowPage" value="1"/>
+	<input type="hidden" name="category" value=""/>
 </form>
 
 </body>

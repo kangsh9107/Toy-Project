@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,24 +25,36 @@
 	</form>
 	<ul>
 		<li class='title'> <!-- 타이틀 -->
+			<span class='orderNumber'>주문번호</span>
 			<span class='id'>아이디</span>
 			<span class='category'>카테고리</span>
 			<span class='SERIAL'>상품번호</span>
 			<span class='price'>가격</span>
-			<span class='orderNumber'>주문번호</span>
 			<span class='orderDate'>주문일자</span>
 			<span class='status'>주문상태</span>
 		</li>
 		
 		<c:forEach var='v' items="${list }" varStatus='status'>
-		<li class='item' onclick="orderView('${v.id}')">
+		<li class='item' onclick="orderView('${v.orderNumber}')">
+	        <form name = 'frm_orderView' id='orderNumber' method='post'>
+			    <span class='orderNumber'>${v.orderNumber }</span>
+               </form>			
 				<span class='id'>${v.id }</span>
 				<span class='category'>${v.category }</span>
 				<span class='SERIAL'>${v.SERIAL }</span>
-				<span class='price'>${v.price }</span>
-				<span class='orderNumber'>${v.orderNumber }</span>
+				<span class='price' >
+				  <fmt:formatNumber value='${v.price }' pattern='#,###'>
+				  </fmt:formatNumber>
+				</span>
 				<span class='orderDate'>${v.orderDate }</span>
-				<span class='status'>${v.status }</span>
+				<span class='status'>
+				    <c:choose>
+					 	   <c:when test="${v.status eq '1'}">입금완료</c:when>
+					 	   <c:when test="${v.status eq '2'}">배송 중</c:when>
+					 	   <c:when test="${v.status eq '3'}">배송완료</c:when>
+					 	   <c:when test="${v.status eq '4'}">환불대기</c:when>
+				    </c:choose>
+ 				</span>
 		</li>
 		</c:forEach>
    	</ul>
@@ -70,6 +83,7 @@
 		   </div>
 		  </c:if>
 		</div>
+
 </div>
 
 </body>

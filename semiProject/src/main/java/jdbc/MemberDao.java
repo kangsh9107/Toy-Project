@@ -22,6 +22,42 @@ public class MemberDao {
 		}
 	}
 	
+	public boolean saveForm(MemberVo mVo) {
+	    if(conn == null) conn = new DBConn().getConn();
+
+	    boolean b = false;
+	    String sql = "insert into member(id, pwd, name, gender, age, postalCode,"
+	        +" 						    address1,address2, phone, email)"
+	        +"					value(?,?,?,?,?,?,?,?,?,?)";
+	    try {
+	        conn.setAutoCommit(false);
+	        ps = conn.prepareStatement(sql);
+	        ps.setString(1, mVo.getId());
+	        ps.setString(2, mVo.getPwd());
+	        ps.setString(3, mVo.getName());
+	        ps.setString(4, mVo.getGender());
+	        ps.setInt(5, mVo.getAge());
+	        ps.setString(6, mVo.getPostalCode());
+	        ps.setString(7, mVo.getAddress1());
+	        ps.setString(8, mVo.getAddress2());
+	        ps.setString(9, mVo.getPhone());
+	        ps.setString(10, mVo.getEmail());
+	    
+	        int cnt = ps.executeUpdate();
+	        
+	        if(cnt > 0) {
+	            conn.commit();
+	            b = true;
+	        }else {
+	            conn.rollback();
+	        }
+	    } catch(Exception ex) {
+	        ex.printStackTrace();
+	    }
+	    
+	    return b;
+	}
+	
 	public void close() {
 		try {
 			if(rs != null) rs.close();

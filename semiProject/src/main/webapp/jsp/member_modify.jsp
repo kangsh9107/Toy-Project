@@ -14,19 +14,25 @@
 
 <div id='admin_input' class='admin_input'>
 <form name="frm_user" action="doJoin" method="POST" class="joinForm">
+<input type='hidden' name='sessionId' id='sessionId' value="${sessionId }"/>
       <h1 id='csc'>회원정보 수정</h1>                                                                 
       <div class="textForm">
       <label>아이디 </label>
-        <input name="loginId" type="text" class="id" placeholder="id" value='${vo.id }'/>
+        <input name="id" type="text" class="id" placeholder="id" value='${vo.id }' readOnly />
       </div>
+      <input type="hidden" name=ppwwdd value='${vo.pwd}'>
+	      <!-- 유저ID인 경우 보이는 비밀번호 칸 -->
+	<c:if test="${sessionId ne 'admin' }">
       <div class="textForm">
       	<label>비밀번호</label>
-        <input name="loginPw" type="password" class="pw"placeholder="pw" >
+        <input name="pwd" type="password" class="pw"placeholder="pw" >
       </div>
       <div class="textForm">
        	<label>비밀번호 확인</label>
-        <input name="loginPwConfirm" type="password" class="pw" placeholder="pw" >
+        <input name="pwConfirm" type="password" class="pw" placeholder="pw" >
       </div>
+   </c:if>
+		  <!-- ------------------------- -->
       <div class="textForm">
        	<label>이름</label>
         <input name="name" type="text" class="name" placeholder="name"value='${vo.name }'/>
@@ -44,13 +50,13 @@
       	<input name="age" type="text" class="age"  placeholder="age" value='${vo.age }'/>
       </div>
       <div class="textForm">
-      	<label>주소</label>
-        <input name="address" type="text" class="address" placeholder="adr" value='${vo.address1 }'>
-      </div>
-      <div class="textForm">
         <label>우편번호</label>
         <input name="postalCode" type="text" size='20' value='${vo.postalCode}'/>
         <input type="button" value="우편번호 찾기" name="btnFindZip"/>
+      </div>
+      <div class="textForm">
+      	<label>주소</label>
+        <input name="address1" type="text" class="address" placeholder="adr" value='${vo.address1 }'>
       </div>
         <div class="textForm">
         <label>상세주소</label>
@@ -58,37 +64,34 @@
       </div>
       <div class="textForm">
         <label>전화번호</label>
-        <input name="cellphoneNo" type="text" class="cellphoneNo"  placeholder="phone" value='${vo.phone}'>
+        <input name="phone" type="text" class="cellphoneNo"  placeholder="phone" value='${vo.phone}'>
       </div>
       <div class="textForm">
       	<label>이메일</label>
         <input name="email" type="text" class="email"  placeholder="email" value='${vo.email }'>
       </div>
+      	<!-- admin일때만 보이는 포인트칸 -->
+	<c:if test="${sessionId eq 'admin' }">
       <div class="textForm">
       	<label>포인트</label>
 		<input name="point" type="text" class="point" placeholder="point" value='${vo.point }'>     
       </div>
-      
+    </c:if>
+			<!-- --------------------- -->
       <div class='btnZone'>
       	<span></span>
       	<input type='button' value='수정' id='btnModify' />
+      	 	<!-- admin일때만 보이는 회원삭제버튼 -->
+	  <c:if test="${sessionId eq 'admin' }">
         <input type='button' value='회원 삭제' id='btnDelete' />
-        <input type='button' value='목록' id='btnSelect' />
+        <input type='button' value='취소' id='btnCancle' />
+      </c:if>
       </div>
+	        <!-- --------------------- -->
+      <input type="hidden" name="findStr" value='${pageVo.findStr }'/>
+      <input type="hidden" name="nowPage" value="1"/>
     </form>
-	<script>
-	let frm = document.frm_input; // 이거 찾아야댐.. 2022-11-11일
-	
-	frm.btnFindZip.onclick = function(){//우편번호}
-		new daum.Postcode({
-			oncomplete : function(data){
-				frm.address.value = data.address;
-				frm.zipcode.value = data.zonecode;
-			}
-		}).open();
-	}
-	
-	</script>
+
 </div>
 </body>
 </html>

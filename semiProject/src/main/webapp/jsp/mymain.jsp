@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +38,8 @@
 				</div>
 				<div  id = "mymain_totalprice">
 					<span class = "mymain_totalprice2">총 구매금액</span>
-					<span class = "mymain_totalprice2">${v.totalprice} 원</span>
+               		<fmt:formatNumber value ="${v.totalprice}" var ='su' pattern="#,###,###"/>
+					<span class = "mymain_totalprice2">${su} 원</span>
 				</div>
 				<div  id = "mymain_odercount" >
 					<span class = "mymain_odercount2">총 구매건수</span>

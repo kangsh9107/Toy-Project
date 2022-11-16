@@ -8,7 +8,7 @@ body{
 	border: 3px solid #917a5a;
 	border-radius: 20px;
 	padding: 20px;
-	width: 1200px;
+	width: 1000px;
 }
 #baik_order_view>h3{
 	text-align: center;
@@ -25,24 +25,37 @@ body{
 	background-color: #917a5a;
 	border-radius: 10px;
 	color: #fff;
+	width:910px;
 }
 #baik_order_view li.item{
 	display: inline-block;
 	padding: 3px;
 	position: relative;
+	width:910px;
 }
 #baik_order_view li.item:hover{
 	background-color: #ccc;
 	border-radius: 10px;
 	cursor: pointer;
+	width:910px;
+}
+
+#baik_order_view #orderNumber{
+	display:inline-block;
+    width: 100px;
+	text-align: right;
+	margin-right: 20px;
 }
 #baik_order_view li>span{
 	display: inline-block;
 }
-#baik_order_view li>span.id{
+#baik_order_view li>span.orderNumber{
 	width: 100px;
 	text-align: right;
 	margin-right: 20px;
+}
+#baik_order_view li>span.id{
+	width: 100px;
 }
 #baik_order_view li>span.category{
 	width: 100px;
@@ -51,11 +64,9 @@ body{
 	width: 150px;
 }
 #baik_order_view li>span.price{
-	width: 100px;
+     width: 100px;
 }
-#baik_order_view li>span.orderNumber{
-	width: 200px;
-}
+
 #baik_order_view li>span.orderDate{
 	width: 200px;
 }

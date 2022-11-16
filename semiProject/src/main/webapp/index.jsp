@@ -12,6 +12,7 @@
 	  integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	  crossorigin="anonymous">
 <link href="css/index.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <!-- JavaScript -->
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
@@ -44,16 +45,16 @@ if(request.getParameter("inc1") != null) {
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
 						<li class="nav-item"><a class="nav-link active" aria-current="page" href="index.jsp">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="action.kang?category=outer&job=showCategory">Outer</a></li>
-						<li class="nav-item"><a class="nav-link" href="action.kang?category=top&job=showCategory">Top</a></li>
-						<li class="nav-item"><a class="nav-link" href="action.kang?category=bottom&job=showCategory">Bottom</a></li>
-						<li class="nav-item"><a class="nav-link" href="action.kang?category=shoes&job=showCategory">Shoes</a></li>
-						<li class="nav-item"><a class="nav-link" href="action.kang?category=acc&job=showCategory">Acc</a></li>
+						<li class="nav-item"><a class="nav-link" href="action.kang?job=select&category=outer&findStr=''">Outer</a></li>
+						<li class="nav-item"><a class="nav-link" href="action.kang?job=select&category=top&findStr=''">Top</a></li>
+						<li class="nav-item"><a class="nav-link" href="action.kang?job=select&category=bottom&findStr=''">Bottom</a></li>
+						<li class="nav-item"><a class="nav-link" href="action.kang?job=select&category=shoes&findStr=''">Shoes</a></li>
+						<li class="nav-item"><a class="nav-link" href="action.kang?job=select&category=acc&findStr=''">Acc</a></li>
 					</ul>
 					<form class="d-flex" name="kangIndexFrm" method="post">
 						<c:choose>
 							<c:when test="${sessionId eq null }">
-								<a class="btn btn-outline-light kangBtnLogin" href="action.kang?job=moveLogin">
+								<a class="btn btn-outline-light kangBtnLogin" href="action.kang?job=moveLoginForm">
 									Login
 								</a>
 							</c:when>

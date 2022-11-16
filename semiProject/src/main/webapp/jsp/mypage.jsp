@@ -21,6 +21,7 @@ if(request.getParameter("incMY") != null){
     <ul id="mypage_chonavi">
 		<li id="mypage_chotitle">MY</li>
 	    <li class="mypage_chosub"><a href='myPage?id=<%=sessionId%>&myJob=myPage'>회원정보</a></li>
+	    <li class="mypage_chosub"><a href='myPage?id=<%=sessionId%>&myJob=myModify'>회원정보수정</a></li>
 	    <li class="mypage_chosub"><a href="myPage?id=<%=sessionId%>&myJob=showOrder">주문정보확인</a></li>
 	    <li class="mypage_chosub"><a href='myPage?id=<%=sessionId%>&myJob=quit'>회원탈퇴</a></li>
     </ul>

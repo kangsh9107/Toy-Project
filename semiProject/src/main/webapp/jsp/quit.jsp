@@ -42,6 +42,8 @@
 				<label id='seolQuitLabel_id'>ID</label><input type='text' name='seolId' id='seolId' value='${v }' readonly/><br/>
 				<label id='seolQuitLabel_pwd'>PASSWORD</label><input type='password' name='seolPwd' id='seolPwd'/><br/>
 				<input type='button' id = 'quitButton' class='btn btn-secondary' value = '회원탈퇴' />
+				<input type="hidden" name="findStr" value='${pageVo.findStr }'/>
+    			<input type="hidden" name="nowPage" value="${1}"/>
 			</form>
 		</div>
 	</div>

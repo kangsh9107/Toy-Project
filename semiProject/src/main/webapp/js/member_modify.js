@@ -3,40 +3,55 @@
  */
 
 
-/*수정-----*/
+
 
 var btnModify = document.querySelector('#btnModify');
-if(btnModify != null){
-	var frm = document.frm_user;
-	btnModify.onclick = function(){
-		frm.action = 'result.jsp?job=updateR';
-		frm.submit();
-	}
-}
+var frm = document.frm_user;
+/*우편번호 DAUM */
 
-/*삭제----*/
+
+if(frm.btnFindZip != null){
+	frm.btnFindZip.onclick = function(){
+		new daum.Postcode({
+			oncomplete : function(data){
+				frm.address1.value = data.address;
+				frm.postalCode.value = data.zonecode;
+			}
+		}).open();
+	}	
+}
+if(btnModify != null){
+	btnModify.onclick = function(){
+	if(sessionId.value != 'admin'){	
+		frm.action = 'myPage?myJob=myModifyR';
+		frm.submit();	
+	   
+	}
+	else{
+		frm.action = 'action.admin?job=memberUpdate';
+		frm.submit();
+		
+	}
+ }
+}
 var btnDelete = document.querySelector('#btnDelete');
 if(btnDelete != null ){
 	var frm = document.frm_user;
 	btnDelete.onclick = function(){
-		frm.action = 'result.jsp?job=deleteR';
+		frm.action = 'action.admin?job=memberDelete';
 		frm.submit();
 	}
 }
 
+/* 목록 -------*/
+var btnSelect = document.querySelector('#btnCancle');
+if(btnSelect != null){
+	btnSelect.onclick = function(){
+		var frm = document.frm_user;
+		frm.action='action.admin?job=memberSearch';
+		frm.submit();
+	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+  }
 

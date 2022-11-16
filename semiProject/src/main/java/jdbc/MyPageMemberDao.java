@@ -1,8 +1,12 @@
 package jdbc;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class MyPageMemberDao {
 	Connection conn;
@@ -92,5 +96,75 @@ public class MyPageMemberDao {
 		}
 		close();
 		return b;
+	}
+	
+	public boolean myModifyR(HttpServletRequest req,HttpServletResponse resp) {
+		if(conn == null) conn = new DBConn().getConn();
+		
+		boolean b = false;
+		String sql = " UPDATE member SET name=?, gender=?, age=?, postalCode=?, address1=?, "
+				+ " address2=?, phone=?, email=?   WHERE id=? and pwd=? ";
+		try {
+			
+			conn.setAutoCommit(false);
+			PreparedStatement ps=conn.prepareStatement(sql);
+			ps.setString(1,req.getParameter("name"));
+			ps.setString(2,req.getParameter("gender"));
+			ps.setString(3,req.getParameter("age"));
+			ps.setString(4,req.getParameter("postalCode"));
+			ps.setString(5,req.getParameter("address1"));
+			ps.setString(6,req.getParameter("address2"));
+			ps.setString(7,req.getParameter("phone"));
+			ps.setString(8,req.getParameter("email"));
+			ps.setString(9,req.getParameter("id"));
+			ps.setString(10,req.getParameter("pwd"));
+		
+			int cnt = ps.executeUpdate();
+			if(cnt>0) {
+				b=true;
+				conn.commit();
+				PrintWriter out = resp.getWriter();
+				out.print("<script>");
+				out.print("alert('success update yours');");
+				out.print("history.back();");	//입력폼으로 다시 이동
+				out.print("</script>");
+			}else {
+				conn.rollback();
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return b;
+		
+	}
+	public MemberVo myModify(String id) {
+		if(conn == null) conn = new DBConn().getConn();
+		MemberVo mVo = new MemberVo();
+		String sql = " select * from member where id=? ";
+		
+		try {
+			PreparedStatement ps=conn.prepareStatement(sql);
+			ps.setString(1,id);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			
+			mVo.setId(rs.getString("id"));
+			mVo.setPwd(rs.getString("pwd"));			
+			mVo.setName(rs.getString("name"));
+			mVo.setGender(rs.getString("gender"));
+			mVo.setAge(rs.getInt("age"));
+			mVo.setPostalCode(rs.getString("postalcode"));
+			mVo.setAddress1(rs.getString("address1"));
+			mVo.setAddress2(rs.getString("address2"));
+			mVo.setPhone(rs.getString("phone"));
+			mVo.setEmail(rs.getString("email"));
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		close();
+		return mVo;
 	}
 }

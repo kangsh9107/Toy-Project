@@ -91,6 +91,8 @@ function sendForm(){
 	if(!(regul2.test(frm.email.value))){
 		alert("잘못된 이메일 형식입니다");
 		return;
+	} else {
+		frm.action='action.Choi?job=saveForm';
+		frm.submit();
 	}
-	 else frm.submit();
-	 }
+}

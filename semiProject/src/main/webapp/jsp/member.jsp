@@ -47,7 +47,7 @@
 				<span class='gender'>${v.gender }</span>
 				<span class='age'>${v.age }</span>
 				<span class='postalCode'>${v.postalCode }</span>
-				<span class='address1'>${v.address1 }</span>
+				<span class='address1' >${v.address1 }</span>
 				<span class='address2'>${v.address2 }</span>
 				<span class='phone'>${v.phone }</span>
 				<span class='email'>${v.email }</span>

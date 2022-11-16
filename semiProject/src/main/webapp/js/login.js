@@ -1,8 +1,8 @@
 /* Login */
 const ChoiLoginFrm = document.ChoiLoginFrm;
 
-function checkLogin() {
-	ChoiLoginFrm.action = "action.kang?job=checkLogin";
+function login() {
+	ChoiLoginFrm.action = "action.kang?job=login";
 	ChoiLoginFrm.submit();
 }
 

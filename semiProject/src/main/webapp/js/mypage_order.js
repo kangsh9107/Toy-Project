@@ -1,12 +1,26 @@
 /**
  * 
  */
+var frmRefund = document.frm_refund;
 
-var frmmolist = document.querySelector("#frm_myorderlist");
-var btnRefund = document.querySelector("#btnRefund");
-let on;
+function refund(ordernumber){
+	frmRefund.action='myPage?myJob=myRefund&ordernumber='+ ordernumber;
+	frmRefund.submit();
+}
 
-btnRefund.onclick = function(){
-  frmmolist.action = 'myPage?myJob=myRefund';
-  frmmolist.submit();
+function movePage(nowPage){
+	frmRefund.action = 'myPage?myJob=showOrder';
+	frmRefund.nowPage.value = nowPage;
+	frmRefund.submit();
+}
+
+frmRefund.btnSearch.onclick=function(){
+	frmRefund.action = 'myPage?myJob=searchMyOrder' ;
+	frmRefund.nowPage.value = 1;
+	frmRefund.submit();
+	}
+
+function showOrderDetails(orderNumber){
+	frmRefund.action = 'myPage?myJob=showOrderDetails&orderNumber=' + orderNumber;
+	frmRefund.submit();
 }

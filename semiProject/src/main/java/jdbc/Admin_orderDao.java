@@ -1,11 +1,14 @@
 package jdbc;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
 import jdbc.DBConn;
 
 public class Admin_orderDao {
@@ -45,15 +48,13 @@ public List<Admin_orderVo> orderSearch(Page pageVo){
 	rs = null;
 	
 	try {
-		/* 검색된 전체 건수를 가져온다 */
-		// 검색된 전체 건수를 가져오는 where 조건은 검색의 where 조건과 같아야 한다
-		sql = "select count(id) totSize from orders "
-			+ "where id like ? "
+		sql = "select count(orderNumber) totSize from orders "
+			+ "where orderNumber like ? "
+			+ "or    id like ? "
 			+ "or    category like ? "
 			+ "or    SERIAL like ? "
 			+ "or    productName like ? "
 			+ "or    price like ? "
-			+ "or    orderNumber like ? "
 			+ "or    orderDate like ? "
 			+ "or    status like ? ";
 		
@@ -75,18 +76,17 @@ public List<Admin_orderVo> orderSearch(Page pageVo){
 		
 		/* 검색 */
 		sql = "select * from orders "
-				+ "where id like ? "
+				+ "where orderNumber like ? "
+				+ "or    id like ? "
 				+ "or    category like ? "
 				+ "or    SERIAL like ? "
 				+ "or    productName like ? "
 				+ "or    price like ? "
-				+ "or    orderNumber like ? "
 				+ "or    orderDate like ? "
 				+ "or    status like ? "
-			+ "order by id "
+			+ "order by status desc,orderNumber "
 			+ "limit ?, ?";
-	
-		//conn.setAutoCommit(false); // DML이 아니라 DQL이라 굳이 필요 없다
+		
 		ps = conn.prepareStatement(sql);
 		ps.setString(1, "%" + pageVo.getFindStr() + "%");
 		ps.setString(2, "%" + pageVo.getFindStr() + "%");
@@ -102,12 +102,12 @@ public List<Admin_orderVo> orderSearch(Page pageVo){
 		rs = ps.executeQuery();
 		while(rs.next()) {
 			Admin_orderVo vo = new Admin_orderVo();
+			vo.setOrderNumber(rs.getInt("orderNumber"));
 			vo.setId(rs.getString("id"));
 			vo.setCategory(rs.getString("category"));
 			vo.setSERIAL(rs.getInt("SERIAL"));
 			vo.setProductName(rs.getString("productName"));
 			vo.setPrice(rs.getInt("price"));
-			vo.setOrderNumber(rs.getInt("orderNumber"));
 			vo.setOrderDate(rs.getString("orderDate"));
 			vo.setStatus(rs.getInt("status"));
 		
@@ -121,25 +121,25 @@ public List<Admin_orderVo> orderSearch(Page pageVo){
 	return list;
    } 
    
-public Admin_orderVo orderView(String id) {
+public Admin_orderVo orderView(String orderNumber) {
 	if(conn == null)   conn = new DBConn().getConn();
-	
 	Admin_orderVo vo = new Admin_orderVo();
-	String sql = "select * from orders where id = ?";
+	String sql = "select * from orders where orderNumber = ?";
 	
 	try {
 		conn.setAutoCommit(false);
 		ps = conn.prepareStatement(sql);
-		ps.setString(1, id);
+		ps.setString(1, orderNumber);
 		
 		rs = ps.executeQuery();
+		
 		while(rs.next()) {
+			vo.setOrderNumber(rs.getInt("orderNumber"));
 			vo.setId(rs.getString("id"));
 			vo.setCategory(rs.getString("category"));
 			vo.setSERIAL(rs.getInt("SERIAL"));
 			vo.setProductName(rs.getString("productName"));
 			vo.setPrice(rs.getInt("price"));
-			vo.setOrderNumber(rs.getInt("orderNumber"));
 			vo.setOrderDate(rs.getString("orderDate"));
 			vo.setStatus(rs.getInt("status"));
 		}
@@ -149,6 +149,61 @@ public Admin_orderVo orderView(String id) {
 	close();
 	
 	return vo;
-}
+    }
+    
+    //user 환불 요청
+	public boolean modify(HttpServletRequest req) throws ServletException, IOException {
+		if (conn == null)
+			conn = new DBConn().getConn();
+		
+		boolean b = false;
+		String sql = " UPDATE orders SET STATUS = 4 WHERE orderNumber=? ";
+		
+		try {
+			if (conn == null)
+				System.out.println("conn is null");
+			if (ps == null)
+				System.out.println("ps is null");
+			
+			conn.setAutoCommit(false);
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, req.getParameter("orderNumber"));
+			
+			int cnt = ps.executeUpdate();
+			if (cnt > 0) {
+				b = true;
+				conn.commit();
+			} else {
+				conn.rollback();
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return b;
+		
+	}
+	// 환불 승인, 주문 삭제
+		public boolean delete(HttpServletRequest req) throws ServletException, IOException {
+			if (conn == null)
+				conn = new DBConn().getConn();
+		
+			boolean b = false;
+			String sql = "delete from orders where orderNumber=? ";
+			try {
+				conn.setAutoCommit(false);
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, req.getParameter("orderNumber"));
+				int cnt = ps.executeUpdate();
+				if (cnt > 0) {
+					b = true;
+					conn.commit();
+				} else {
+					conn.rollback();
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			return b;
+		}
 
 }

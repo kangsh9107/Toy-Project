@@ -2,6 +2,7 @@
  *  관리자페이지 주문관리 order.jsp
  */
 let frmOrderSearch = document.frm_order_search;
+let frmOrderView = document.frm_orderView;
 
 if(frmOrderSearch != null) {
 	frmOrderSearch.btnSelect.addEventListener('click', function() {
@@ -16,8 +17,8 @@ function movePage(nowPage) {
 	frmOrderSearch.submit();
 }
 
-function orderView(id) {
-	frmOrderSearch.action = 'action.admin?job=orderView&id=' + id; 
+function orderView(orderNumber) {
+	frmOrderSearch.action = 'action.admin?job=orderView&orderNumber=' + orderNumber; 
 	frmOrderSearch.submit();
 }
 

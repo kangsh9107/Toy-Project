@@ -11,14 +11,14 @@ function showCategoryDetail(nowPage, serial, category) {
 
 /* MovePage */
 function movePage(nowPage) {
-	kangCategoryFrm.action = "action.kang?job=movePage";
+	kangCategoryFrm.action = "action.kang?job=select";
 	kangCategoryFrm.nowPage.value = nowPage;
 	kangCategoryFrm.submit();
 }
 
 /* Search */
-function productSearch() {
-	kangCategoryFrm.action = "action.kang?job=search";
+function searchProduct() {
+	kangCategoryFrm.action = "action.kang?job=select";
 	kangCategoryFrm.nowPage.value = 1;
 	kangCategoryFrm.submit();
 }

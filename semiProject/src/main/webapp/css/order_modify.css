@@ -97,7 +97,7 @@ body {
   background: none;
 }
 
-.status {
+#status {
   width: 200px;
   border:none;
   outline:none;
@@ -105,13 +105,14 @@ body {
   font-size:16px;
   height:25px;
   background: none;
+  display : inline-block;
 }
 
 .btnZone{
   text-align: center;
 }
 
-#btnModify{
+#btn_order_Delete{
   margin: 10px;
   color: white;
   position: relative;
@@ -126,22 +127,7 @@ body {
   transition: 0.4s;
 }
 
-#btnDelete{
-  margin: 10px;
-  color: white;
-  position: relative;
-  width: 25%;
-  height: 40px;
-  background: linear-gradient(125deg,#8D6E63,#FFCC80,#814E342E);
-  background-position: left;
-  background-size: 200%;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-#btnSelect{
+#btn_order_Select{
   margin: 10px;
   color: white;
   position: relative;

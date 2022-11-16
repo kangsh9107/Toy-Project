@@ -1,15 +1,4 @@
 @charset "UTF-8";
-* {
-  margin: 0px;
-  padding: 0px;
-  text-decoration: none;
-  font-family:sans-serif;
-
-}
-
-body {
-  background-image:#34495e;
-}
 
 #csc{
   color:#c08050;
@@ -180,7 +169,7 @@ body {
   transition: 0.4s;
 }
 
-#btnSelect{
+#btnCancle{
   margin: 10px;
   color: white;
   position: relative;

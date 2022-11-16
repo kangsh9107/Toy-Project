@@ -25,12 +25,55 @@
 	<div class="carousel-inner kangCarouselInner"></div>
 </div>
 
-<!-- Best8 -->
-<section class="py-5">
-	<div class="container px-4 px-lg-5 mt-5">
-		<div id="kangBestWrap" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"></div>
-	</div>
-</section>
+<!-- Best8 보여주기 -->
+<a class="btn btn-outline-dark" href="showBest.do?job=outer">Outer</a>
+<a class="btn btn-outline-dark" href="showBest.do?job=top">Top</a>
+<a class="btn btn-outline-dark" href="showBest.do?job=bottom">Bottom</a>
+<a class="btn btn-outline-dark" href="showBest.do?job=shoes">Shoes</a>
+<a class="btn btn-outline-dark" href="showBest.do?job=acc">Acc</a>
+
+<c:if test="${category ne null }">
+	<section class="py-5">
+		<div class="container px-4 px-lg-5 mt-5">
+			<div id="kangBestWrap2" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+				<c:forEach var='v' items="${list}" varStatus='status'>
+					<div class="col mb-5">
+						<div class="card h-100">
+							<!-- Sale badge-->
+							<div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Best</div>
+							<!-- Product image-->
+							<img class="card-img-top" name="aa" id= "${status.count}" src="img/${v.category}${v.serial}.png" alt="${v.category}${v.serial}.png" />
+							<div class="card-body p-4">
+								<div class="text-center">
+									<!-- Product name -->
+									<h5 class="fw-bolder">${v.category}${v.serial}</h5>
+									<!-- Product price -->
+									${v.price}
+								</div>
+							</div>
+							<!-- Buy -->
+							<div class="card-footer p-2 pt-0 border-top-0 bg-transparent">
+								<div class="text-center">
+									<a class="btn btn-outline-dark" href="#">Buy</a>
+									<a class="btn btn-outline-dark">Add to cart</a>
+								</div>
+							</div>
+						</div>
+					</div>
+		    	</c:forEach>
+			</div>
+		</div>
+	</section>
+</c:if>
+
+<!-- 추천상품8 => Best8 -->
+<c:if test="${category eq null }">
+	<section class="py-5">
+		<div class="container px-4 px-lg-5 mt-5">
+			<div id="kangBestWrap" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"></div>
+		</div>
+	</section>
+</c:if>
  
 </body>
 </html>

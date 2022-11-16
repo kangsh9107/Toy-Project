@@ -25,16 +25,19 @@ body{
 	background-color: #917a5a;
 	border-radius: 10px;
 	color: #fff;
+	width :750px;
 }
 #baik_product_view li.item{
 	display: inline-block;
 	padding: 3px;
 	position: relative;
+	width :750px;
 }
 #baik_product_view li.item:hover{
 	background-color: #ccc;
 	border-radius: 10px;
 	cursor: pointer;
+	width :750px;
 }
 #baik_product_view li>span{
 	display: inline-block;

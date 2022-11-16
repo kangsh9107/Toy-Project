@@ -1,10 +1,14 @@
 package jdbc;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
 
 
 
@@ -40,10 +44,6 @@ public class Admin_memberDao {
 		if(conn == null)   conn = new DBConn().getConn();
 		
 		List<Admin_memberVo> list = new ArrayList<>();
-		
-		String sql = "";
-		ps = null;
-		rs = null;
 		
 		try {
 			/* 검색된 전체 건수를 가져온다 */
@@ -164,4 +164,62 @@ public class Admin_memberDao {
 		return vo;
 	}
 	
+	public boolean modify(HttpServletRequest req) throws ServletException, IOException  {
+		if(conn == null) conn = new DBConn().getConn();
+
+		boolean b=false;
+		String sql = " update member set name=?, gender=?, age=?, postalCode=?, "
+		           + " address1=?, address2=?, phone=?, email=?, point=? " 
+				   + " where id=? ";
+		try {
+			if(conn == null) System.out.println("conn is null");
+			if(ps == null) System.out.println("ps is null");
+			
+			conn.setAutoCommit(false);
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, req.getParameter("name"));
+			ps.setString(2, req.getParameter("gender"));
+			ps.setString(3, req.getParameter("age"));
+			ps.setString(4, req.getParameter("postalCode"));
+			ps.setString(5, req.getParameter("address1"));
+			ps.setString(6, req.getParameter("address2"));
+			ps.setString(7, req.getParameter("phone"));
+			ps.setString(8, req.getParameter("email"));
+			ps.setString(9, req.getParameter("potin"));
+			ps.setString(10, req.getParameter("id"));
+			
+			int cnt = ps.executeUpdate();
+			if(cnt>0) {
+				b=true;
+				conn.commit();
+			}else {
+				conn.rollback();
+			}
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return b;		
+	}
+	
+	public boolean delete(HttpServletRequest req) throws ServletException, IOException {
+		if(conn == null) conn = new DBConn().getConn();
+		
+		boolean b=false;
+		String sql = "delete from member where id=? ";
+		try {
+			conn.setAutoCommit(false);
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, req.getParameter("id"));
+			int cnt = ps.executeUpdate();
+			if(cnt>0) {
+				b=true;
+				conn.commit();
+			}else {
+				conn.rollback();
+			}
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return b;
+	}
 }
