@@ -29,7 +29,7 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
 				<div class="d-flex">
 					<!-- products order by select -->
-					<select class="form-select" aria-label="Default select example">
+					<select class="form-select" aria-label="Default select example" style="display: none;">
 						<option selected>정렬 선택</option>
 						<option value="mostSalesRate">판매량 높은 순</option>
 						<option value="highPrice">높은 가격 순</option>

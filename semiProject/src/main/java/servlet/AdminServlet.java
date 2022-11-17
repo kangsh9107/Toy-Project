@@ -139,11 +139,13 @@ public class AdminServlet extends HttpServlet {
 			
 			boolean b = mDao.modify(req);
 			if(b) {
+				req.setAttribute("ch", "ch");	
+				
 				memberSearch(pageVo, req, resp);
 			}else {
 				PrintWriter out = resp.getWriter();
 				out.print("<script>");
-				out.print("   alert('자료에 오류가 발생!');");
+				out.print("   alert('error!!!!');");
 				out.print("   history.back();" );// 입력폼으로 다시 이동
 				out.print("</script>");
 			}
@@ -188,11 +190,12 @@ public class AdminServlet extends HttpServlet {
 			Page pageVo = (Page) req.getAttribute("pageVo");
 			boolean b = mDao.delete(req);
 			if (b) {
+				req.setAttribute("mm", "mm");
 				memberSearch(pageVo, req, resp);
 			} else {
 				PrintWriter out = resp.getWriter();
 				out.print("<script>");
-				out.print("   alert('자료 삭제시 오류가 발생!!!');");
+				out.print("   alert('error!!!');");
 				out.print("   history.back();");// 입력폼으로 다시 이동
 				out.print("</script>");
 			}
@@ -206,6 +209,8 @@ public class AdminServlet extends HttpServlet {
 			
 			boolean b = oDao.modify(req);
 			if(b) {
+				req.setAttribute("ou", "ou");
+				
 				orderSearch(pageVo, req, resp);
 			}else {
 				PrintWriter out = resp.getWriter();
@@ -218,6 +223,7 @@ public class AdminServlet extends HttpServlet {
 			Page pageVo = (Page)req.getAttribute("pageVo");
 			boolean b = oDao.delete(req);
 			if(b) {
+				req.setAttribute("ou", "ou");
 				orderSearch(pageVo, req, resp);
 			}else{
 				PrintWriter out = resp.getWriter();

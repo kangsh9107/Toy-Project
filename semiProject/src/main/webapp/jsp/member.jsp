@@ -17,6 +17,20 @@
 </head>
 <body>
 
+<c:set var="c" value="${ch}" scope="request"/>
+<c:if test="${c eq 'ch'}"> 
+	<Script>
+	 alert("회원정보가 수정되었습니다.");
+	</Script>
+</c:if>
+	
+<c:set var="f" value="${mm}" scope="request"/>
+<c:if test="${f eq 'mm'}"> 
+   <Script>
+    alert("회원정보가 삭제되었습니다.");
+   </Script>
+</c:if>
+
 <div id='baik_member_view'>
 	<h3>회원정보 조회</h3>
 	<form name='frm_member_search' id='search' method='post'>

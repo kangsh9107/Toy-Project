@@ -11,6 +11,15 @@
 
 </head>
 <body>
+<!-- 정보 수정완료후 수정완료alert 나오기전에 mymain.jsp로 포워딩되어서 알러트창이 뜨지 않는 에러 디버깅 위해 아래 코드를 입력 -->
+<c:set var="c" value="${ch}" scope="request"/>
+<c:if test="${c eq 'ch'}"> 
+	<Script>
+	 alert("회원정보가 수정되었습니다.");
+	</Script>
+</c:if>
+
+<!-- -------------------------------------- -->
 
 <div id = "mymainchowrap" style="width:1000px;">
 	<div id = mymain_info>

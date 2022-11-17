@@ -27,12 +27,6 @@ if(request.getParameter("buy1") != null) {
 	out.print("    alert('재고가 부족합니다😢')");
 	out.print("</script>");
 }
-
-if(request.getParameter("buy2") != null) {
-	out.print("<script>");
-	out.print("    alert('구매 완료💕')");
-	out.print("</script>");
-}
 %>
 
 <!-- findStr, nowPage -->

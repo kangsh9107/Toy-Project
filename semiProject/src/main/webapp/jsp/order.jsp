@@ -16,6 +16,13 @@
 </head>
 <body>
 
+<c:set var="c" value="${ou}" scope="request"/>
+<c:if test="${c eq 'ou'}"> 
+	<Script>
+	 alert("환불이 승인되었습니다.");
+	</Script>
+</c:if>
+
 <div id='baik_order_view'>
 	<h3>주문정보 조회</h3>
 	<form name='frm_order_search' id='search' method='post'>

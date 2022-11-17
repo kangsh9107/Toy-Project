@@ -34,7 +34,7 @@
 			<span id="today_orders">${vo.today_orders}</span>
 		</div>
 		<div class="od_sta">	
-			<h4>오늘 주문상태</h4><br/>
+			<h4>총 주문현황</h4><br/>
 	        <ul class="order_status">
 		   		<span id="text_status1">입금완료 &nbsp&nbsp&nbsp&nbsp${vo.status1 }</span><br/>
 		   		<span id="text_status1">배송중 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${vo.status2 }</span><br/>

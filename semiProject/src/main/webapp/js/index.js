@@ -3,7 +3,6 @@ createFooterLink();
 
 function createFooterLink() {
 	const kangFooterLinksWrap = document.querySelector("#kangFooterLinksWrap");
-	
 
 	kangFooterLinksWrap.innerHTML += `
 		<div class="col-lg-3 col-md-6 mb-4 mb-md-0">

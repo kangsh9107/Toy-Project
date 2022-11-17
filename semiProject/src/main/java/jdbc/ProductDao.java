@@ -359,7 +359,6 @@ public class ProductDao {
 				productVo.setImg(rs.getString("img"));
 				
 				list.add(productVo);
-				System.out.println(productVo.getSerial());
 			}
 		} catch(Exception ex) {
 			ex.printStackTrace();

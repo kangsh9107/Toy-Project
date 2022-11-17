@@ -27,6 +27,13 @@ String inc1 = "jsp/main.jsp";
 if(request.getParameter("inc1") != null) {
 	inc1 = request.getParameter("inc1");
 }
+
+if(request.getParameter("buy2") != null) {
+	out.print("<script>");
+	out.print("    alert('구매 완료💕')");
+	out.print("</script>");
+}
+
 %>
 
 <!-- Navigation-->

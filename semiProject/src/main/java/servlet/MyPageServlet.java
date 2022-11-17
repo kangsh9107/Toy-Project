@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -87,8 +88,7 @@ public class MyPageServlet extends HttpServlet{
 		pageVo.setNowPage(Integer.parseInt(req.getParameter("nowPage")));
 		req.setAttribute("pageVo", pageVo);
 		switch(myJob) {
-		case "myPage":
-			break;
+		
 		
 		
 		case "quitR":
@@ -119,6 +119,8 @@ public class MyPageServlet extends HttpServlet{
 		case "myModifyR":
 			myModifyR(req, resp);
 			break;
+			
+	
 		}
 		
 	}
@@ -138,17 +140,26 @@ public class MyPageServlet extends HttpServlet{
 		if(mpmDao == null) mpmDao = new MyPageMemberDao();
 		
 		MemberVo vo = (MemberVo)req.getAttribute("mVo");
+		PrintWriter out = resp.getWriter();
 		
 		boolean b = mpmDao.myModifyR(req,resp);
 		
 		if(b) {	//modify가 정상적으로 되면 b는 트루
 			HttpSession session = req.getSession();
 			String id = (String)session.getAttribute("sessionId");
-			showMyPage(id,req, resp);
-		}else {
-			PrintWriter out = resp.getWriter();
+			/* 수정완료알러트되기전에 쇼마이페이지로 포워딩되어서 알러트창이뜨지않거라고함(강사님)
 			out.print("<script>");
-			out.print("alert('check your id , pwd');");
+			out.print("alert('succeed changing your info');");
+			out.print("</script>");
+			*/
+			
+			//수정완료알러트안뜨는 에러 해결하기위해서 쇼마이페이지포워딩될때 req에 ch를 넣고 jsp에서 ch가 있을때만 수정완료알러트뜨도록
+			req.setAttribute("ch", "ch");	
+			showMyPage(id,req, resp);
+			
+		}else {
+			out.print("<script>");
+			out.print("alert('check your password');");
 			out.print("history.back();");	//입력폼으로 다시 이동
 			out.print("</script>");
 		}
@@ -179,6 +190,8 @@ public class MyPageServlet extends HttpServlet{
 		RequestDispatcher rd = req.getRequestDispatcher(url);
 		req.setAttribute("mpmmVo", mpmmVo);
 		rd.forward(req, resp);
+		
+		
 	}
 	
 	/*

@@ -4,12 +4,10 @@
 
 
 
+var frm = document.frm_user;
 
 var btnModify = document.querySelector('#btnModify');
-var frm = document.frm_user;
 /*우편번호 DAUM */
-
-
 if(frm.btnFindZip != null){
 	frm.btnFindZip.onclick = function(){
 		new daum.Postcode({
@@ -20,12 +18,19 @@ if(frm.btnFindZip != null){
 		}).open();
 	}	
 }
+
+
 if(btnModify != null){
 	btnModify.onclick = function(){
 	if(sessionId.value != 'admin'){	
-		frm.action = 'myPage?myJob=myModifyR';
-		frm.submit();	
-	   
+		if(frm.pwd.value != frm.pwConfirm.value){
+			alert('비밀번호를 일치시켜 주세요.');
+			frm.pwd.value.focus();
+		}else{
+			frm.action = 'myPage?myJob=myModifyR';
+			frm.submit();
+			
+		}   
 	}
 	else{
 		frm.action = 'action.admin?job=memberUpdate';
@@ -51,7 +56,6 @@ if(btnSelect != null){
 		frm.action='action.admin?job=memberSearch';
 		frm.submit();
 	}
-
-	
   }
+
 

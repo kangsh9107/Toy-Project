@@ -29,7 +29,6 @@ public class showBest extends HttpServlet {
 		if(dao == null) dao = new ProductDao();
 		
 		req.setAttribute("category", req.getParameter("job"));
-		System.out.println("doGet : " + req.getParameter("job"));
 		
 		switch(req.getParameter("job")) {
 		case "outer":
@@ -59,7 +58,6 @@ public class showBest extends HttpServlet {
 		req.setAttribute("list", list);
 		req.setAttribute("category", req.getParameter("job"));
 		rd.forward(req, resp);
-		System.out.println("survlet called");
 	}
 
 }

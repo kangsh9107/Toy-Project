@@ -149,7 +149,7 @@ public class KangServlet extends HttpServlet {
 		if(list.get(1).getProductName().equals("temp")) {
 			url = path + "category_detail.jsp?buy1=fail";
 		} else {
-			url = path + "category_detail.jsp?buy2=seccess";
+			url = "index.jsp?buy2=seccess";
 		}
 		rd = req.getRequestDispatcher(url);
 		req.setAttribute("list", list);

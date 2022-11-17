@@ -7,6 +7,10 @@
 	width:950px;
 }
 
+#seolMyOrder .btnSearch{
+	margin-bottom: 5px;
+}
+
 #seolMyorderLi{
 	border: 1px solid #aaa;
 	margin-right : 25px;
