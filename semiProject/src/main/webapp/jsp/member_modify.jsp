@@ -90,6 +90,7 @@
 	        <!-- --------------------- -->
       <input type="hidden" name="findStr" value='${pageVo.findStr }'/>
       <input type="hidden" name="nowPage" value="1"/>
+	  <input name="point" type="hidden" class="point" placeholder="point" value='${vo.point }'>     
     </form>
 
 </div>

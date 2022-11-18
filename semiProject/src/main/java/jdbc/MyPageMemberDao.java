@@ -103,7 +103,7 @@ public class MyPageMemberDao {
 		
 		boolean b = false;
 		String sql = " UPDATE member SET name=?, gender=?, age=?, postalCode=?, address1=?, "
-				+ " address2=?, phone=?, email=?   WHERE id=? and pwd=? ";
+				+ " address2=?, phone=?, email=?, point=?   WHERE id=? and pwd=? ";
 		try {
 			
 			conn.setAutoCommit(false);
@@ -116,8 +116,9 @@ public class MyPageMemberDao {
 			ps.setString(6,req.getParameter("address2"));
 			ps.setString(7,req.getParameter("phone"));
 			ps.setString(8,req.getParameter("email"));
-			ps.setString(9,req.getParameter("id"));
-			ps.setString(10,req.getParameter("pwd"));
+			ps.setString(9,req.getParameter("point"));
+			ps.setString(10,req.getParameter("id"));
+			ps.setString(11,req.getParameter("pwd"));
 		
 			int cnt = ps.executeUpdate();
 			if(cnt>0) {
@@ -159,6 +160,7 @@ public class MyPageMemberDao {
 			mVo.setAddress2(rs.getString("address2"));
 			mVo.setPhone(rs.getString("phone"));
 			mVo.setEmail(rs.getString("email"));
+			mVo.setPoint(rs.getInt("point"));
 			
 			
 		}catch (Exception e) {

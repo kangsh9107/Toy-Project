@@ -119,7 +119,7 @@ public class Admin_graphDao {
 			        + "where SERIAL= ? and age>=50";
 		String sql8 = "select productName as productName from products where serial =? ";
 		
-		conn.setAutoCommit(false);
+		conn.setAutoCommit(true);
 		PreparedStatement ps1 = conn.prepareStatement(sql1);
 		PreparedStatement ps2 = conn.prepareStatement(sql2);
 		PreparedStatement ps3 = conn.prepareStatement(sql3);
